@@ -1,0 +1,6720 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+% Added by lyx2lyx
+%  for proper underlining
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+\let\cite@rig\cite
+\newcommand{\b@xcite}[2][\%]{\def\def@pt{\%}\def\pas@pt{#1}
+  \mbox{\ifx\def@pt\pas@pt\cite@rig{#2}\else\cite@rig[#1]{#2}\fi}}
+\renewcommand{\underbar}[1]{{\let\cite\b@xcite\uline{#1}}}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-bytype
+theorems-sec-bytype
+eqs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language italian
+\language_package babel
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command makeindex
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic true
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\boxbgcolor #f0f0f0
+\index Indice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 1.5cm
+\rightmargin 2.5cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Teoria della decoerenza quantistica
+\end_layout
+
+\begin_layout Author
+Valerio Gherardi
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage 
+\backslash
+pagenumbering{arabic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Preliminari
+\end_layout
+
+\begin_layout Standard
+Questa parte di preliminari è intesa a fornire le nozioni e gli strumenti
+ di base per la descrizione quantitativa del fenomeno della decoerenza,
+ ossia il  formalismo dell'operatore densità e il modello di Von Neumann
+ dei processi di misura ideali.
+ Prima di iniziare lo studio di questi argomenti, discuteremo brevemente
+ il concetto di sistema isolato, e la sua applicabilità in ambito quantistico.
+\end_layout
+
+\begin_layout Section
+Introduzione
+\end_layout
+
+\begin_layout Subsection
+Il modello di sistema isolato
+\end_layout
+
+\begin_layout Standard
+Lo studio di un qualsiasi fenomeno naturale inizia con la suddivisione dell'univ
+erso in una parte interessante ai fini della descrizione del fenomeno (il
+ 
+\shape italic
+sistema
+\shape default
+) ed una parte non interessante (l'
+\shape italic
+ambiente
+\shape default
+).
+ Questa suddivisione, oltre ad essere una scelta obbligata da evidenti ragioni
+ pratiche, è inerente al nostro modo stesso di concepire la Fisica e di
+ formularne i principi generali.
+ La nozione stessa di “fenomeno”, senza la previa individuazione di un particola
+re sistema, appare vacua.
+\end_layout
+
+\begin_layout Standard
+Detto ciò, un compito del teorico è quello di ideare un modello del sistema
+ studiato, in grado di spiegare i risultati degli esperimenti passati e
+ di fornire previsioni circa gli esperimenti futuri, in accordo con le leggi
+ generali della teoria sottostante (meccanica classica o quantistica, statistica
+, termodinamica, etc.).
+\end_layout
+
+\begin_layout Standard
+Dagli albori della Fisica, il modello “par excellence”
+\shape italic
+ 
+\shape default
+di sistema fisico fu il modello (o meglio, la classe di modelli) di 
+\shape italic
+sistema isolato
+\shape default
+, ovvero non interagente in alcun modo con l'ambiente.
+ La causa di ciò si può attribuire ai seguenti fatti:
+\end_layout
+
+\begin_layout Enumerate
+La convinzione a priori, fondata sull'esperienza, che la natura dei fenomeni
+ fisici fosse indipendente dal nostro effettuare o meno esperimenti su di
+ essi.
+\end_layout
+
+\begin_layout Enumerate
+Il sostanziale successo di moltissimi modelli di sistema isolato.
+\end_layout
+
+\begin_layout Standard
+L'avvento della meccanica quantistica rese la posizione espressa dal punto
+ 1 insostenibile.
+ Sappiamo ormai che, se vogliamo descrivere correttamente i fenomeni quantistici
+, la nostra descrizione deve necessariamente dipendere dal tipo di misure
+ che effettuiamo sul sistema.
+ Se mettiamo da parte i nostri pregiudizi sul fatto che la natura debba,
+ o non debba, essere descritta da leggi deterministiche, il motivo principale
+ di ciò si può individuare nell'esistenza di osservabili non commutanti.
+ Finchè ci limitiamo a considerare un insieme di osservabili commutanti,
+ possiamo sempre mantenere la posizione secondo cui il sistema possiede,
+ ad ogni stadio della misura, un valore ben definito delle osservabili misurate;
+ valore che possiamo misurare in ogni momento e, in seguito, confermare
+ con un'ulteriore misura.
+ Tuttavia, se scegliamo di misurare osservabili non commutanti, un tale
+ atteggiamento non può che portare a contraddizioni: ogni atto di misura
+ riprepara il sistema rispetto alle altre osservabili incompatibili, di
+ modo che nessuna di queste può avere, prima della misura stessa, un valore
+ definito
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+“Questo è il nocciolo della meccanica quantistica.” - J.
+ J.
+ Sakurai.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ciononostante, i primi successi della meccanica quantistica, come la predizione
+ corretta dello spettro dell'atomo di idrogeno, si basavano sostanzialmente
+ su modelli di sistema isolato.
+ È probabilmente per questo motivo, per il fatto che la meccanica quantistica
+ portasse a risultati corretti quando applicata ad oggetti microscopici
+ supposti isolati, che tale idealizzazione non venne abbandonata per lungo
+ tempo.
+\end_layout
+
+\begin_layout Standard
+Per quanto, nella descrizione del mondo microscopico, non vi fossero segni
+ dell'inadeguatezza di tali modelli, l'estensione degli stessi al dominio
+ macroscopico si scontrava in maniera eclatante con un fatto inconfutabile
+ dell'esperienza: gli oggetti macroscopici si comportano in modo classico,
+ non quantistico.
+ Quando descriviamo un sistema macroscopico, possiamo in ogni istante supporre
+ che questo sia caratterizzato da valori ben definiti di un insieme ristretto
+ di osservabili, come la posizione e la velocità del centro di massa.
+ Inoltre possiamo, almeno in linea di principio, stabilire questi valori
+ senza alterare in nessun modo lo stato (inteso come insieme dei valori
+ delle osservabili) del sistema.
+ Empiricamente ciò non porta a contraddizioni: il mondo macroscopico sembra
+ aderire perfettamente al punto 1 di cui sopra.
+\end_layout
+
+\begin_layout Standard
+Un altro modo di porre la questione è il seguente: i sistemi classici appaiono
+ trovarsi 
+\shape italic
+sempre
+\shape default
+ in autostati di alcune (poche) osservabili e 
+\shape italic
+mai
+\shape default
+ in sovrapposizioni di questi.
+ L'insieme degli stati permessi per un sistema è, secondo la meccanica quantisti
+ca, piuttosto vasto: questo segue dal principio di sovrapposizione, che
+ afferma che la sovrapposizione di due possibili stati dinamici del sistema
+ è ancora un possibile stato.
+ Tuttavia, per un sistema classico, un sottoinsieme molto ristretto di questi
+ esaurisce i possibili stati del sistema.
+\end_layout
+
+\begin_layout Standard
+Questo ci riporta al modello di sistema isolato.
+ Per un sistema isolato, in accordo con le leggi della meccanica quantistica,
+ le relazioni di sovrapposizione sono preservate dall'evoluzione temporale:
+ l'equazione di Schrödinger è lineare.
+ La stessa evoluzione temporale, genera tendenzialmente sovrapposizioni
+ non classiche (a partire da stati “classici”, ad esempio stati ben localizzati).
+ In più, i sistemi macroscopici possono interagire con sistemi microscopici,
+ per i quali l'esistenza delle sovrapposizioni è un dato di fatto.
+ L'interazione dà luogo a correlazioni, che possono risultare in stati sovrappos
+ti del sistema macroscopico (vedi “gatto di Schrödinger”).
+ Stando a tutto ciò, tali sovrapposizioni macroscopiche dovrebbero essere
+ non assenti ma, al contrario, ubique.
+\end_layout
+
+\begin_layout Standard
+I primi passi verso il superamento dell'impasse si possono far risalire
+ all'articolo del 1970 di H.
+ D.
+ Zeh 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zeh - On the interpretation of measuremente"
+
+\end_inset
+
+; l'osservazione chiave è la seguente.
+ I sistemi macroscopici interagiscono costantemente con l'ambiente circostante.
+ L'interazione è tale da creare correlazioni quantistiche (entanglement)
+ fra sistema e ambiente, il cui risultato è la perdita, al livello del sistema,
+ di una relazione di fase ben definita fra le diverse componenti di una
+ sovrapposizione.
+ Questo fenomeno è chiamato 
+\shape italic
+decoerenza
+\shape default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Per un breve resoconto storico sulla nascita della teoria della decoerenza
+ il lettore può consultare 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "pp. 10-12"
+key "Schlosshauer Q2C"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Di conseguenza, la decoerenza agisce come un “censore”, che vieta la persistenza
+ dell'infinità di stati permessi a priori dal principio di sovrapposizione.
+ La decoerenza ha il merito di spiegare, in termini puramente operativi,
+ l'emergenza degli stati classici dei sistemi macroscopici.
+ Inoltre, tramite l'interazione con l'ambiente, vengono chiariti diversi
+ aspetti riguardanti la descrizione quantomeccanica dei processi di misura.
+\end_layout
+
+\begin_layout Standard
+La decoerenza è un fenomeno puramente quantistico (cioè segue dalle leggi
+ della meccanica quantistica) e la sua inclusione o meno nella descrizione
+ corretta della dinamica di un sistema non è arbitraria.
+ La sua 
+\shape italic
+efficienza
+\shape default
+ dipende dalla dimensione del sistema e dal tipo di interazione con l'ambiente.
+ Tipicamente, i tempi di decoerenza per sistemi macroscopici sono estremamente
+ brevi, svariati ordini di grandezza al di sotto di qualunque altra scala
+ di tempi nei fenomeni in gioco, di modo che possiamo, ai fini pratici,
+ considerare la decoerenza come un processo istantaneo.
+\end_layout
+
+\begin_layout Standard
+Da questo discorso dovrebbe risultare abbastanza chiaro che, se vogliamo
+ descrivere correttamente un sistema macroscopico in termini quantomeccanici,
+ dobbiamo abbandonare l'idealizzazione di sistema isolato.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Assiomi della meccanica quantistica"
+
+\end_inset
+
+Assiomi della meccanica quantistica
+\end_layout
+
+\begin_layout Standard
+Postuliamo i seguenti fatti (cfr.
+ Zurek 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "VI.C"
+key "Zurek (2003)"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+i.
+ 
+\series default
+Ad ogni sistema quantistico è associato uno 
+\shape italic
+spazio di Hilbert
+\shape default
+.
+
+\series bold
+ 
+\series default
+Uno 
+\shape slanted
+stato
+\shape default
+ di un sistema è un raggio
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Come è consuetudine, nel seguito la parola “stato” sarà riferita sempre
+ al 
+\shape italic
+vettore
+\shape default
+ di stato, cioè un qualsiasi rappresentante del raggio in questione.
+\end_layout
+
+\end_inset
+
+ nello spazio di Hilbert ad esso associato e fornisce una descrizione completa
+ del sistema.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+ii.
+ 
+\series default
+Lo stato di un sistema isolato evolve secondo l'
+\shape italic
+equazione di Schrödinger
+\shape default
+:
+\begin_inset Formula 
+\begin{equation}
+i\hbar\dfrac{\text{d}}{\text{d}t}\left|s\right\rangle =\hat{H}\left|s\right\rangle ,\label{eq:1.1 - Equazione di Schrodinger}
+\end{equation}
+
+\end_inset
+
+dove 
+\begin_inset Formula $\hat{H}$
+\end_inset
+
+, l'
+\shape italic
+hamiltoniano
+\shape default
+, è un operatore hermitiano.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+a.
+ 
+\series default
+Un'
+\shape italic
+osservabile 
+\shape default
+è un operatore hermitiano dello spazio di Hilbert, per il quale esiste una
+ base ortonormale composta da suoi autovettori.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+b1.
+ 
+\series default
+Lo spettro di un'osservabile 
+\begin_inset Formula $O$
+\end_inset
+
+ rappresenta l'insieme dei possibili esiti di una misura della stessa.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+b2.
+ 
+\series default
+Se il sistema 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ si trova nello stato 
+\begin_inset Formula $\left|s\right\rangle =\sum_{i}c_{i}\left|o_{i}\right\rangle ,$
+\end_inset
+
+ dove 
+\begin_inset Formula $\left|o_{i}\right\rangle $
+\end_inset
+
+ è un autostato dell'osservabile 
+\begin_inset Formula $O$
+\end_inset
+
+ con autovalore 
+\begin_inset Formula $o_{i}$
+\end_inset
+
+, allora la probabilità che una misura di 
+\begin_inset Formula $O$
+\end_inset
+
+ fornisca come risultato 
+\begin_inset Formula $o_{i}$
+\end_inset
+
+ è 
+\begin_inset Formula $\left|c_{i}\right|^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+c.
+ 
+\series default
+Se una misura di 
+\begin_inset Formula $O$
+\end_inset
+
+ fornisce il valore 
+\begin_inset Formula $o_{i}$
+\end_inset
+
+, immediatamente dopo la misura il sistema si trova nello stato 
+\begin_inset Formula $\left|o_{i}\right\rangle $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Gli assiomi 
+\series bold
+i
+\series default
+ e 
+\series bold
+ii
+\series default
+ si riferiscono all'evoluzione dei sistemi isolati; questa è, come conseguenza
+ della 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.1 - Equazione di Schrodinger"
+
+\end_inset
+
+, deterministica (in entrambe le direzioni temporali).
+ Gli assiomi 
+\series bold
+a
+\series default
+, 
+\series bold
+b1
+\series default
+, 
+\series bold
+b2
+\series default
+, 
+\series bold
+c
+\series default
+ si riferiscono invece ai processi di misura, che sono intrinsecamente stocastic
+i.
+ L'assioma 
+\series bold
+b2
+\series default
+ è la regola di Born, mentre 
+\series bold
+c 
+\series default
+è il postulato del collasso.
+ Si noti che la combinazione di 
+\series bold
+b2 
+\series default
+e 
+\series bold
+c 
+\series default
+garantisce l'immediata ripetibilità della misura.
+ Inoltre, proprio 
+\series bold
+c 
+\series default
+(il postulato del collasso) permette affermazioni del tipo “il sistema si
+ trova nello stato 
+\begin_inset Formula $\left|s\right\rangle $
+\end_inset
+
+”.
+\end_layout
+
+\begin_layout Standard
+Zurek nota, giustamente, che oltre al sistema di assiomi 
+\series bold
+i
+\series default
+-
+\series bold
+c
+\series default
+, è spesso sottointeso:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+ø.
+ 
+\series default
+Esistono sistemi quantistici e apparati classici.
+\end_layout
+
+\begin_layout Standard
+Questo è effettivamente lo spirito dell'interpretazione di Copenhagen, che
+ postula il famoso dualismo fra “sistemi microscopici” (descritti dalla
+ meccanica quantistica) e “apparati macroscopici” (descritti dalla meccanica
+ classica) (cfr.
+ Landau 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "§ 1"
+key "Landau MQ"
+
+\end_inset
+
+).
+ Il punto di vista di Zurek (e dell'autore) è invece il seguente:
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+ø'.
+ 
+\series default
+L'universo è composto da sistemi quantistici.
+ Lo spazio di Hilbert di un sistema composito è il prodotto tensoriale degli
+ spazi di Hilbert dei costituenti.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Box Shaded
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+Il problema della misura.
+ 
+\series default
+Non entreremo nella questione del “problema della misura”, che, ridotto
+ ai minimi termini, è il problema di quale sia la causa del collasso del
+ vettore di stato (sia che si voglia vedere quest'ultimo come un vero e
+ proprio processo fisico, sia che questo rappresenti l'acquisizione di un'inform
+azione da parte dell'osservatore).
+ Da un punto di vista operativo, gli assiomi 
+\series bold
+i
+\series default
+-
+\series bold
+c
+\series default
+ devono essere necessariamente completati da un'ulteriore proposizione come
+ 
+\series bold
+ø
+\series default
+, contenente (a differenza di 
+\series bold
+ø'
+\series default
+) un'affermazione positiva riguardo la possibilità di effettuare misure.
+ Quello che intendo sottolineare con l'affermazione 
+\series bold
+ø'
+\series default
+, è che qualunque sistema è in linea di principio passibile di una descrizione
+ quantistica, punto di vista che, ritengo, sia un passo nella direzione
+ giusta per la comprensione della natura profonda del processo di misura.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Credo sia opportuno definire chiaramente il significato del termine “misura”,
+ così come verrà usato nel seguito: una misura di un'osservabile è una 
+\shape italic
+qualsiasi
+\shape default
+ procedura al termine della quale lo sperimentatore è in grado di determinare
+ in maniera univoca il valore dell'osservabile misurata.
+ Quello che tenteremo di fare nel seguito è di fornire un 
+\shape italic
+modello 
+\shape default
+di processo di misura, tuttavia ci tengo a precisare che il significato
+ che attribuisco al termine “misura” è del tutto indipendente da questi
+ modelli e molto più basilare.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+L'operatore densità
+\end_layout
+
+\begin_layout Standard
+In questa sezione si introduce il formalismo dell'operatore densità, fondamental
+e nella descrizione della decoerenza.
+\end_layout
+
+\begin_layout Standard
+Spesso, per un sistema quantistico, una descrizione tramite un ket di stato
+ non è disponibile.
+ Ciò può essere dovuto a motivi pratici, come una preparazione imperfetta
+ dello stato iniziale del sistema.
+ Tuttavia, talvolta l'impossibilità è 
+\shape italic
+di principio
+\shape default
+: è il caso dei sistemi entangled, per cui non è possibile associare un
+ ket di stato ai sistemi individuali.
+ A questo proposito, osserviamo che la frase “il ket di stato fornisce una
+ descrizione completa del sistema” andrebbe meglio precisata con “Qualora
+ sia possibile assegnare in maniera univoca uno stato al sistema, [...]”.
+ Strettamente parlando, lo schema «ket di stato→evoluzione di Schrödinger→collas
+so» si applica ad un sistema isolato fra due atti di misura.
+\end_layout
+
+\begin_layout Standard
+Per chiarezza espositiva, diamo la seguente definizione generalizzata di
+ 
+\shape italic
+stato
+\shape default
+: diremo che il sistema quantistico 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ si trova in uno stato descritto dall'operatore densità 
+\begin_inset Formula $\rho$
+\end_inset
+
+ se il valore atteso di una qualsiasi osservabile 
+\begin_inset Formula $O$
+\end_inset
+
+ di 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ in un esperimento è dato da:
+\begin_inset Formula 
+\begin{equation}
+\left\langle O\right\rangle =\text{tr}(\rho O).\label{eq: 2.1 - Regola della traccia}
+\end{equation}
+
+\end_inset
+
+Come si vede facilmente (Teorema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:2.1 - Equivalenza fra stati puri e densità"
+
+\end_inset
+
+), uno stato descritto da un ket (detto, talvolta, 
+\shape italic
+stato puro
+\shape default
+) è un caso particolare della definizione precedente.
+ Nel seguito, quando ciò non possa dar luogo a equivoci, parleremo di “stato”
+ in questo senso generalizzato.
+ 
+\end_layout
+
+\begin_layout Subsection
+Operatore densità di uno stato puro e di una miscela propria
+\end_layout
+
+\begin_layout Standard
+Consideriamo un sistema 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ nello stato puro 
+\begin_inset Formula $\left|s\right\rangle $
+\end_inset
+
+.
+ Definiamo l'operatore densità:
+\begin_inset Formula 
+\begin{equation}
+\rho=\left|s\right\rangle \left\langle s\right|.\label{eq:2.2 - Densità stato puro}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:2.1 - Equivalenza fra stati puri e densità"
+
+\end_inset
+
+Se 
+\begin_inset Formula $O$
+\end_inset
+
+ è un'osservabile del sistema 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+, allora:
+\begin_inset Formula 
+\[
+\left\langle s|O|s\right\rangle =\text{tr}(\rho O).
+\]
+
+\end_inset
+
+In altre parole, lo stato del sistema è descritto dalla densità 
+\begin_inset Formula $\rho$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Scegliamo una base ortonormale 
+\begin_inset Formula $\left\{ \left|i\right\rangle ,\ i=1,2,\dots\right\} $
+\end_inset
+
+ di 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+, con 
+\begin_inset Formula $\left|1\right\rangle =\left|s\right\rangle $
+\end_inset
+
+.
+ Allora:
+\begin_inset Formula 
+\[
+\text{tr}(\rho O)=\sum_{i}\left\langle i\left|\left(\left|1\right\rangle \left\langle 1\right|O\right)\right|i\right\rangle =\sum_{i}\delta_{i1}\left\langle 1|O|i\right\rangle =\left\langle 1|O|1\right\rangle =\left\langle s|O|s\right\rangle ,
+\]
+
+\end_inset
+
+come volevasi dimostrare.
+\end_layout
+
+\begin_layout Standard
+Il Teorema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:2.1 - Equivalenza fra stati puri e densità"
+
+\end_inset
+
+ mostra che le due descrizioni mediante il ket di stato 
+\begin_inset Formula $\left|s\right\rangle $
+\end_inset
+
+ o l'operatore densità 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.2 - Densità stato puro"
+
+\end_inset
+
+ sono equivalenti.
+ Supponiamo ora che il sistema si trovi con certezza in uno degli stati
+ (non necessariamente ortogonali) 
+\begin_inset Formula $\left|s_{i}\right\rangle $
+\end_inset
+
+, 
+\begin_inset Formula $i=1,2,\dots$
+\end_inset
+
+, con probabilità note 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+.
+ In tal caso, il valore atteso dell'osservabile 
+\begin_inset Formula $O$
+\end_inset
+
+, in accordo con la regola di Born, sarà dato da:
+\begin_inset Formula 
+\begin{equation}
+\left\langle O\right\rangle =\sum_{i}p_{i}\left\langle s_{i}|O|s_{i}\right\rangle \label{eq:2.3 - media d'insieme, thm. prob. composte}
+\end{equation}
+
+\end_inset
+
+Per confermare la 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.3 - media d'insieme, thm. prob. composte"
+
+\end_inset
+
+, esprimiamo l'osservabile 
+\begin_inset Formula $O$
+\end_inset
+
+ in termini dei suoi autostati 
+\begin_inset Formula $\left|o_{j}\right\rangle $
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+O=\sum_{j}o_{j}\left|o_{j}\right\rangle \left\langle o_{j}\right|.
+\]
+
+\end_inset
+
+Allora la 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.3 - media d'insieme, thm. prob. composte"
+
+\end_inset
+
+ equivale a:
+\begin_inset Formula 
+\begin{equation}
+\sum_{i}p_{i}\left\langle s_{i}\left|\left\{ \sum_{j}o_{j}\left|o_{j}\right\rangle \left\langle o_{j}\right|\right\} \right|s_{i}\right\rangle =\sum_{j}o_{j}\left[\sum_{i}\left|\left\langle o_{j}|s_{i}\right\rangle \right|^{2}p_{i}\right]=\sum_{j}o_{j}f(o_{j}).\label{eq:2.4 - media d'insieme, thm. prob. composte 2}
+\end{equation}
+
+\end_inset
+
+Ma 
+\begin_inset Formula $\left|\left\langle o_{j}|s_{i}\right\rangle \right|^{2}$
+\end_inset
+
+ è la probabilità che una misura di 
+\begin_inset Formula $O$
+\end_inset
+
+ dia il risultato 
+\begin_inset Formula $o_{j}$
+\end_inset
+
+, se il sistema è nello stato 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+, mentre 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ è la probabilità che il sistema si trovi in questo stato.
+ Di conseguenza, per il teorema delle probabilità composte
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+L'applicabilità dei teoremi del calcolo delle probabilità classico alle
+ “probabilità” fornite dal formalismo quantistico non è sempre garantita.
+ La causa di ciò si può ricondurre alla generica non commutatività delle
+ osservabili della meccanica quantistica.
+ In questo caso, ci riferiamo ad un esperimento in cui l'osservabile che
+ si misura è ben specificata (e non ad una classe di esperimenti in cui
+ si misurano osservabili in generale non commutanti).
+ Lo spazio di probabilità è 
+\begin_inset Formula $\Omega=\left\{ \left(s_{i},o_{j}\right)\right\} $
+\end_inset
+
+ e gli eventi casuali sono tutti gli eventi elementari, mentre la funzione
+ di probabilità è soggetta ai vincoli:
+\begin_inset Formula 
+\[
+\text{Pr}(s_{i})=p_{i},\qquad\text{Pr}(o_{j}|s_{i})=\left|\left\langle o_{j}|s_{i}\right\rangle \right|^{2},
+\]
+
+\end_inset
+
+dove gli eventi 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+ e 
+\begin_inset Formula $o_{j}$
+\end_inset
+
+ sono definiti rispettivamente da
+\begin_inset Formula 
+\[
+s_{i}=\left\{ \left(s_{i},o_{j}\right)\ j=1,2,\dots\right\} ,\qquad o_{j}=\left\{ \left(s_{i},o_{j}\right)\ i=1,2,\dots\right\} .
+\]
+
+\end_inset
+
+Con queste definizioni possiamo provare rigorosamente il teorema.
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Formula $f(o_{j})$
+\end_inset
+
+ è esattamente la probabilità del valore 
+\begin_inset Formula $o_{j}$
+\end_inset
+
+, da cui la 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.3 - media d'insieme, thm. prob. composte"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Notiamo ora che la 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.3 - media d'insieme, thm. prob. composte"
+
+\end_inset
+
+ si può ottenere ugualmente dall'operatore densità:
+\begin_inset Formula 
+\begin{equation}
+\rho=\sum_{i}p_{i}\left|s_{i}\right\rangle \left\langle s_{i}\right|\label{eq:2.5 - Densità miscela propria}
+\end{equation}
+
+\end_inset
+
+mediante la regola 
+\begin_inset Formula $\left\langle O\right\rangle =\text{tr}(\rho O$
+\end_inset
+
+), ovvero lo stato del sistema è descritto dalla densità 
+\begin_inset Formula $\rho$
+\end_inset
+
+.
+ La dimostrazione è immediata e segue dal Teorema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:2.1 - Equivalenza fra stati puri e densità"
+
+\end_inset
+
+ e dall'osservazione che l'operazione di traccia è lineare.
+\end_layout
+
+\begin_layout Standard
+Abbiamo appena descritto quella che viene usualmente chiamata una 
+\shape italic
+miscela propria di stati
+\shape default
+.
+ In questo caso, la descrizione mediante l'operatore densità è resa necessaria
+ dalla soggettiva ignoranza, da parte dello sperimentatore, sullo stato
+ del sistema.
+ In linea di principio, è possibile assegnare un ket di stato al sistema;
+ tuttavia, tutto ciò che è disponibile è l'informazione parziale, codificata
+ dalla 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.5 - Densità miscela propria"
+
+\end_inset
+
+, riguardo alle probabilità di un certo insieme di stati 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+.
+ In questo senso, possiamo dire che la densità 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.5 - Densità miscela propria"
+
+\end_inset
+
+ ammette un'
+\shape italic
+interpretazione basata sull'ignoranza
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+È comunque importante osservare che la corrispondenza fra operatori densità
+ della forma 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.5 - Densità miscela propria"
+
+\end_inset
+
+ e miscele proprie non è biunivoca.
+ Per chiarire questo punto, consideriamo un sistema a due stati descritto
+ dall'operatore densità:
+\shape italic
+
+\begin_inset Formula 
+\[
+\rho=\dfrac{1}{2}\left|0\right\rangle \left\langle 0\right|+\dfrac{1}{2}\left|1\right\rangle \left\langle 1\right|=\dfrac{1}{2}\left|+\right\rangle \left\langle +\right|+\dfrac{1}{2}\left|-\right\rangle \left\langle -\right|.
+\]
+
+\end_inset
+
+
+\shape default
+Qui 
+\begin_inset Formula $\left|\pm\right\rangle =\frac{1}{\sqrt{2}}(\left|0\right\rangle \pm\left|1\right\rangle )$
+\end_inset
+
+ è la base coniugata a 
+\begin_inset Formula $\left\{ \left|0\right\rangle ,\left|1\right\rangle \right\} $
+\end_inset
+
+ ed è chiaro che un'interpretazione basata sull'ignoranza è applicabile
+ al più ad una delle due basi; non di meno la matrice densità è identica
+ in entrambe le basi (e in qualsiasi altra base).
+\end_layout
+
+\begin_layout Standard
+Notiamo, infine, che in un dato esperimento può accadere che disponiamo
+ di un certo numero 
+\begin_inset Formula $N$
+\end_inset
+
+ di copie del sistema 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+, di cui una frazione 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ è preparata (con certezza) nello stato 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+.
+ L'osservabile d'interesse è 
+\begin_inset Formula $\overline{O}=\frac{O^{(1)}+O^{(2)}+\dots+O^{(N)}}{N},$
+\end_inset
+
+ dove 
+\begin_inset Formula $O^{(i)}$
+\end_inset
+
+ si riferisce alla 
+\begin_inset Formula $i$
+\end_inset
+
+-esima copia del sistema 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+.
+ Anche in questo caso, le medie di insieme 
+\begin_inset Formula $\left\langle \overline{O}\right\rangle $
+\end_inset
+
+ (rispetto allo stato puro dell'insieme di 
+\begin_inset Formula $N$
+\end_inset
+
+ copie) si possono ottenere dall'operatore densità 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.5 - Densità miscela propria"
+
+\end_inset
+
+, tramite l'usuale regola di traccia.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:2.2 - Densità ridotta e sistemi entangled"
+
+\end_inset
+
+Operatore densità ridotta e sistemi entangled
+\end_layout
+
+\begin_layout Standard
+Consideriamo un sistema 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ composto da due sottosistemi 
+\begin_inset Formula ${\cal S}_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula ${\cal S}_{2}$
+\end_inset
+
+.
+ Supponiamo che lo stato di 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ sia descritto da un operatore densità 
+\begin_inset Formula $\rho$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:2.2 - Densità ridotta per descrizione locale"
+
+\end_inset
+
+Lo stato di 
+\begin_inset Formula ${\cal S}_{1}$
+\end_inset
+
+ è descritto dalla densità
+\begin_inset Formula 
+\begin{equation}
+\rho_{1}=\text{tr}_{2}\rho.\label{eq:2.6 - Densità ridotta (definizione)}
+\end{equation}
+
+\end_inset
+
+In altre parole, se 
+\begin_inset Formula $O_{1}$
+\end_inset
+
+ è un'osservabile di 
+\begin_inset Formula ${\cal S}_{1}$
+\end_inset
+
+, allora:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\langle O_{1}\right\rangle  & = & \text{tr}_{1}(\rho_{1}O_{1}).
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Qui 
+\begin_inset Formula $\text{tr}_{i}$
+\end_inset
+
+ indica la traccia (parziale) rispetto agli stati del sottosistema 
+\begin_inset Formula $i$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\text{tr}_{i}A=\sum_{j}\left\langle s_{j}^{(i)}|A|s_{j}^{(i)}\right\rangle ,
+\]
+
+\end_inset
+
+dove 
+\begin_inset Formula $\left\{ \left|s_{j}^{(i)}\right\rangle \right\} $
+\end_inset
+
+ è una qualsiasi base di 
+\begin_inset Formula ${\cal S}_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Indichiamo con 
+\begin_inset Formula $I_{2}$
+\end_inset
+
+ l'operatore identità di 
+\begin_inset Formula ${\cal S}_{2}$
+\end_inset
+
+.
+ Allora:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\langle O_{1}\right\rangle  & = & \text{tr}\left(\rho\cdot(O_{1}\otimes I_{2})\right)\\
+ & = & \sum_{i,j}\left\langle s_{i}^{(1)}\right|\left\langle s_{j}^{(2)}\right|\left\{ \rho\cdot(O_{1}\otimes I_{2})\right\} \left|s_{i}^{(1)}\right\rangle \left|s_{j}^{(2)}\right\rangle \\
+ & = & \sum_{i}\left\langle s_{i}^{(1)}\right|\left\{ \sum_{j}\left\langle s_{j}^{(2)}|\rho|s_{j}^{(2)}\right\rangle \right\} O_{1}\left|s_{i}^{(1)}\right\rangle \\
+ & = & \sum_{i}\left\langle s_{i}^{(1)}|\rho_{1}O_{1}|s_{i}^{(1)}\right\rangle \\
+ & = & \text{tr}_{1}(\rho_{1}O_{1}),
+\end{eqnarray*}
+
+\end_inset
+
+come volevasi dimostrare.
+\end_layout
+
+\begin_layout Standard
+Il teorema precedente si applica in modo naturale agli stati entangled
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Uno stato 
+\begin_inset Formula $\left|s\right\rangle $
+\end_inset
+
+ di un sistema composto 
+\begin_inset Formula ${\cal S}={\cal S}_{1}{\cal S}_{2}$
+\end_inset
+
+ si dice 
+\shape italic
+entangled
+\shape default
+ se è un tensore indecomponibile, i.e.
+ se non è un prodotto tensoriale di stati di 
+\begin_inset Formula ${\cal S}_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula ${\cal S}_{2}$
+\end_inset
+
+.
+ Il lettore interessato a una discussione sull'entanglement può consultare
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Sez. 2.3"
+key "Schlosshauer Q2C"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+ Supponiamo che lo stato (puro) di 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ sia dato da una somma di tensori decomponibili:
+\begin_inset Formula 
+\begin{equation}
+\left|s\right\rangle =\sum_{i}c_{i}\left|s_{i}^{(1)}\right\rangle \left|s_{i}^{(2)}\right\rangle .\label{eq:2.7 - Somma di tensori decomponibili}
+\end{equation}
+
+\end_inset
+
+Questo è equivalente (Teorema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:2.1 - Equivalenza fra stati puri e densità"
+
+\end_inset
+
+) all'operatore densità:
+\begin_inset Formula 
+\[
+\rho=\left|s\right\rangle \left\langle s\right|=\sum_{ij}c_{i}c_{j}^{*}\left|s_{i}^{(1)}\right\rangle \left|s_{i}^{(2)}\right\rangle \left\langle s_{j}^{(1)}\right|\left\langle s_{j}^{(2)}\right|.
+\]
+
+\end_inset
+
+Un semplice calcolo mostra che:
+\begin_inset Formula 
+\begin{equation}
+\rho_{1}=\text{tr}_{2}\rho=\sum_{ij}c_{i}c_{j}^{*}\left\langle s_{j}^{(2)}|s_{i}^{(2)}\right\rangle \left|s_{i}^{(1)}\right\rangle \left\langle s_{j}^{(1)}\right|.\label{eq:2.8 - Densità sistema entangled}
+\end{equation}
+
+\end_inset
+
+Se, in particolare, 
+\begin_inset Formula $\left\{ \left|s_{j}^{(2)}\right\rangle \right\} $
+\end_inset
+
+ è un insieme ortonormale di 
+\begin_inset Formula ${\cal S}_{2}$
+\end_inset
+
+, allora l'operatore densità ridotta è:
+\begin_inset Formula 
+\begin{equation}
+\rho_{1}=\sum_{i}\left|c_{i}\right|^{2}\left|s_{i}^{(1)}\right\rangle \left\langle s_{i}^{(1)}\right|,\label{eq:2.9 - Densità sistema entangled - massimo entanglement}
+\end{equation}
+
+\end_inset
+
+
+\shape italic
+formalmente 
+\shape default
+analogo all'operatore densità di una miscela propria 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.5 - Densità miscela propria"
+
+\end_inset
+
+.
+ Ciò non deve trarre in inganno: le due densità hanno un'origine differente.
+ Nel primo caso, l'uso dell'operatore densità è, come già osservato, in
+ linea di principio dispensabile e dipende dalla soggettiva ignoranza dello
+ sperimentatore.
+ Nel secondo caso, l'operatore densità emerge da un'
+\shape italic
+oggettiva impossibilità 
+\shape default
+di attribuire un ket di stato ad un sistema entangled.
+ In questo senso, l'operatore densità (e non il ket di stato) fornisce una
+ descrizione completa del sistema.
+\end_layout
+
+\begin_layout Standard
+D'altra parte l'analogia formale fra le densità 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.9 - Densità sistema entangled - massimo entanglement"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.5 - Densità miscela propria"
+
+\end_inset
+
+ ha un'importante conseguenza: supponiamo che uno sperimentatore trovi che
+ la statistica delle sue misure ripetute su un certo numero di copie di
+ 
+\begin_inset Formula ${\cal S}_{1}$
+\end_inset
+
+ sia descritta dalla 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.9 - Densità sistema entangled - massimo entanglement"
+
+\end_inset
+
+.
+ Allora egli non può distinguere, tramite le sue misure, i due casi in cui
+ 
+\series bold
+(a)
+\series default
+ le copie del sistema sono preparate indeterministicamente, con probabilità
+ 
+\begin_inset Formula $\left|c_{i}\right|^{2}$
+\end_inset
+
+, nei diversi stati 
+\begin_inset Formula $s_{i}$
+\end_inset
+
+ oppure 
+\series bold
+(b)
+\series default
+ tutte le copie si trovano nello stesso stato entangled.
+ I suoi risultati sono, in entrambi i casi, descritti dalla densità 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.9 - Densità sistema entangled - massimo entanglement"
+
+\end_inset
+
+.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+
+\size footnotesize
+\begin_inset Box Shaded
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:2.0Aggiornamento-dell'operatore-densità"
+
+\end_inset
+
+Aggiornamento dell'operatore densità e densità condizionale
+\end_layout
+
+\begin_layout Plain Layout
+Supponiamo che la coppia 
+\begin_inset Formula ${\cal S}_{1}{\cal S}_{2}$
+\end_inset
+
+ sia descritta da un operatore densità 
+\begin_inset Formula $\rho$
+\end_inset
+
+.
+ Definiamo la 
+\shape italic
+densità condizionale rispetto allo stato
+\shape default
+ 
+\begin_inset Formula $\left|s^{(2)}\right\rangle $
+\end_inset
+
+ di 
+\begin_inset Formula ${\cal S}_{2}$
+\end_inset
+
+ tramite:
+\begin_inset Formula 
+\begin{equation}
+\rho_{\left|s^{(2)}\right\rangle }=\dfrac{\left\langle s^{(2)}|\rho|s^{(2)}\right\rangle }{\text{tr}_{1}\left(\left\langle s^{(2)}|\rho|s^{(2)}\right\rangle \right)},\label{eq:2.10 - Densità condizionale}
+\end{equation}
+
+\end_inset
+
+ammesso che sia 
+\begin_inset Formula $\text{tr}_{1}(\left\langle s^{(2)}|\rho|s^{(2)}\right\rangle )\neq0$
+\end_inset
+
+.
+ Per comprendere questa definizione, consideriamo le uguaglianze:
+\begin_inset Formula 
+\begin{equation}
+\text{tr}\left[\left|s^{(1)}\right\rangle \left\langle s^{(1)}\right|\rho_{\left|s^{(2)}\right\rangle }\right]=\left\langle s^{(1)}\right|\rho_{\left|s^{(2)}\right\rangle }\left|s^{(1)}\right\rangle =\dfrac{\left\langle s^{(1)}\right|\left\langle s^{(2)}|\rho|s^{(2)}\right\rangle \left|s^{(1)}\right\rangle }{\text{tr}_{1}\left(\left\langle s^{(2)}|\rho|s^{(2)}\right\rangle \right)}=\dfrac{\text{tr}\left[(\left|s^{(1)}\right\rangle \left\langle s^{(1)}\right|\otimes\left|s^{(2)}\right\rangle \left\langle s^{(2)}\right|)\rho\right]}{\text{tr}\left[(I_{1}\otimes\left|s^{(2)}\right\rangle \left\langle s^{(2)}\right|)\rho\right]}.\label{eq:2.11 - Correlazione stati s^1 e s^2 tramite densità condizionale}
+\end{equation}
+
+\end_inset
+
+Il membro a destra si riconosce facilmente essere la probabilità condizionata
+ che una misura dell'osservabile 
+\begin_inset Formula $\left|s^{(1)}\right\rangle \left\langle s^{(1)}\right|$
+\end_inset
+
+ fornisca 1, se una misura dell'osservabile 
+\begin_inset Formula $\left|s^{(2)}\right\rangle \left\langle s^{(2)}\right|$
+\end_inset
+
+ ha fornito 1.
+ Di conseguenza, l'operatore 
+\begin_inset Formula $\rho_{\left|s^{(2)}\right\rangle }$
+\end_inset
+
+ descrive lo stato di 
+\begin_inset Formula ${\cal S}_{1}$
+\end_inset
+
+ condizionato dall'osservazione dello stato 
+\begin_inset Formula $\left|s^{(2)}\right\rangle $
+\end_inset
+
+ di 
+\begin_inset Formula ${\cal S}_{2}$
+\end_inset
+
+.
+ Il valore atteso di una qualunque osservabile 
+\begin_inset Formula $O_{1}$
+\end_inset
+
+ di 
+\begin_inset Formula ${\cal S}_{1}$
+\end_inset
+
+ è dato dalla regola usuale:
+\begin_inset Formula 
+\begin{equation}
+\left\langle O_{1}\right\rangle =\text{tr}_{1}(O_{1}\rho_{\left|s^{(2)}\right\rangle }).\label{eq:2.12 - Valore atteso condizionato di osservabile generica}
+\end{equation}
+
+\end_inset
+
+In particolare, il valore atteso dell'osservabile 
+\begin_inset Formula $\left|s^{(1)}\right\rangle \left\langle s^{(1)}\right|$
+\end_inset
+
+ nello stato 
+\begin_inset Formula $\rho_{\left|s^{(2)}\right\rangle }$
+\end_inset
+
+ è, come si è visto, 
+\begin_inset Formula $\left\langle \left|s^{(1)}\right\rangle \left\langle s^{(1)}\right|\right\rangle =\text{Pr}\left(s^{(1)}|s^{(2)}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Per calcolare facilmente la densità condizionale 
+\begin_inset Formula $\rho_{\left|s^{(2)}\right\rangle }$
+\end_inset
+
+ a partire dallo stato globale 
+\begin_inset Formula $\rho$
+\end_inset
+
+, possiamo prima calcolare la densità condizionale non normalizzata tramite
+ 
+\begin_inset Formula 
+\begin{equation}
+\tilde{\rho}_{\left|s^{(2)}\right\rangle }=\left|s^{(2)}\right\rangle \left\langle s^{(2)}\right|\rho\left|s^{(2)}\right\rangle \left\langle s^{(2)}\right|\label{eq:2.13 - Densità condizionale non normalizzata}
+\end{equation}
+
+\end_inset
+
+e poi porre 
+\begin_inset Formula $\rho_{\left|s^{(2)}\right\rangle }=\frac{\tilde{\rho}_{\left|s^{(2)}\right\rangle }}{\text{tr}\tilde{\rho}_{\left|s^{(2)}\right\rangle }}$
+\end_inset
+
+.
+ Si vede facilmente che ciò è equivalente alla definizione 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.10 - Densità condizionale"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Vediamo in particolare la densità condizionale rispetto a uno stato 
+\begin_inset Formula $\left|\sigma^{(2)}\right\rangle $
+\end_inset
+
+ di 
+\begin_inset Formula ${\cal S}_{2}$
+\end_inset
+
+ se l'operatore densità ha la forma:
+\begin_inset Formula 
+\begin{equation}
+\rho=\sum_{i}p_{i}\left|s_{i}^{(1)}\right\rangle \left\langle s_{i}^{(1)}\right|\left|s_{i}^{(2)}\right\rangle \left\langle s_{i}^{(2)}\right|.\label{eq:2.14 - Densità miscela del tipo p|s><s||a><a| per condizionale}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Questa è:
+\begin_inset Formula 
+\begin{equation}
+\rho_{\left|\sigma^{(2)}\right\rangle }=\sum_{i}w_{i}\left|s_{i}^{(1)}\right\rangle \left\langle s_{i}^{(1)}\right|,\label{eq:2.15 - Densità condizionale nella base |s>}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+dove i nuovi pesi sono definiti da:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shaded
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+w_{i}=\dfrac{p_{i}\left|\left\langle \sigma^{(2)}|s_{i}^{(2)}\right\rangle \right|^{2}}{\sum_{j}p_{j}\left|\left\langle \sigma^{(2)}|s_{j}^{(2)}\right\rangle \right|^{2}}.\label{eq:2.16 - Nuovi pesi densità condizionale}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Ciò mostra che l'interpretazione della densità condizionale è corretta:
+ 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ è la probabilità a priori di ottenere lo stato 
+\begin_inset Formula $\left|s_{i}^{(1)}\right\rangle $
+\end_inset
+
+, mentre 
+\begin_inset Formula $\left|\left\langle \sigma^{(2)}|s_{i}^{(2)}\right\rangle \right|^{2}$
+\end_inset
+
+ è la probabilità condizionata da 
+\begin_inset Formula $\left|s_{i}^{(1)}\right\rangle $
+\end_inset
+
+ di ottenere lo stato 
+\begin_inset Formula $\left|\sigma{}^{(2)}\right\rangle $
+\end_inset
+
+, e la 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.16 - Nuovi pesi densità condizionale"
+
+\end_inset
+
+ è l'analogo quantomeccanico del teorema di Bayes.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+La probabilità di uno stato 
+\begin_inset Formula $\left|\sigma^{(1)}\right\rangle $
+\end_inset
+
+, condizionata dall'osservazione di 
+\begin_inset Formula $\left|\sigma^{(2)}\right\rangle $
+\end_inset
+
+, è:
+\begin_inset Formula 
+\begin{equation}
+\text{tr}\left[\left|\sigma^{(1)}\right\rangle \left\langle \sigma^{(1)}\right|\rho_{\left|\sigma^{(2)}\right\rangle }\right]=\sum_{i}w_{i}\left|\left\langle \sigma^{(1)}|s_{i}^{(1)}\right\rangle \right|^{2}.\label{eq:2.17 - Probabilità condizionata di sigma^1 da sigma^2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Le seguenti affermazioni, che si riferiscono alla densità iniziale 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.14 - Densità miscela del tipo p|s><s||a><a| per condizionale"
+
+\end_inset
+
+, sono conseguenze più o meno immediate delle 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.17 - Probabilità condizionata di sigma^1 da sigma^2"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.16 - Nuovi pesi densità condizionale"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{tr}\left[\left|s_{i}^{(1)}\right\rangle \left\langle s_{i}^{(1)}\right|\rho_{\left|s_{j}^{(2)}\right\rangle }\right]=\delta_{ij}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{tr}\left[\left|\sigma^{(1)}\right\rangle \left\langle \sigma^{(1)}\right|\rho_{\left|\sigma^{(2)}\right\rangle }\right]=1$
+\end_inset
+
+ se e solo se 
+\begin_inset Formula $\left|\sigma^{(1)}\right\rangle =\left|s_{i}^{(1)}\right\rangle $
+\end_inset
+
+ per qualche 
+\begin_inset Formula $i$
+\end_inset
+
+, e 
+\begin_inset Formula $p_{j}\left|\left\langle \sigma^{(2)}|s_{j}^{(2)}\right\rangle \right|^{2}=0$
+\end_inset
+
+ per ogni 
+\begin_inset Formula $j\neq i$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:2.3 - Fenomeni d'interferenza"
+
+\end_inset
+
+Fenomeni d'interferenza
+\end_layout
+
+\begin_layout Standard
+Per illustrare il fenomeno dell'interferenza, consideriamo una particella
+ descritta dalla funzione d'onda:
+\begin_inset Formula 
+\begin{equation}
+\psi(x)=\dfrac{1}{\sqrt{2}}\left(\psi_{1}(x)+\psi_{2}(x)\right)\label{eq:2.10 - Sovrapposizione di f. d'onda}
+\end{equation}
+
+\end_inset
+
+La densità di probabilità della posizione della particella è data da:
+\begin_inset Formula 
+\begin{equation}
+\left|\psi(x)\right|^{2}=\frac{1}{2}\left|\psi_{1}(x)\right|^{2}+\frac{1}{2}\left|\psi_{2}(x)\right|^{2}+\text{Re}\left\{ \psi_{1}^{*}(x)\psi_{2}(x)\right\} \label{eq:2.11 - Interferenze densità spaziale}
+\end{equation}
+
+\end_inset
+
+I primi due termini della 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.11 - Interferenze densità spaziale"
+
+\end_inset
+
+ costituiscono una somma classica di probabilità: se sapessimo con certezza
+ che la particella si trova con probabilità 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+ in uno dei due stati 
+\begin_inset Formula $\psi_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula $\psi_{2}$
+\end_inset
+
+, con relative densità 
+\begin_inset Formula $\left|\psi_{1,2}(x)\right|^{2}$
+\end_inset
+
+, allora (come segue dal teorema delle probabilità composte) la densità
+ sarebbe data da questa semplice somma.
+ Il terzo termine nella 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.11 - Interferenze densità spaziale"
+
+\end_inset
+
+, che rappresenta l'interferenza fra i due stati 
+\begin_inset Formula $\psi_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula $\psi_{2}$
+\end_inset
+
+, è ciò che permette di distinguere sperimentalmente la sovrapposizione
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.10 - Sovrapposizione di f. d'onda"
+
+\end_inset
+
+ da una miscela propria.
+\end_layout
+
+\begin_layout Standard
+Possiamo generalizzare queste considerazioni tramite il formalismo dell'operator
+e densità.
+ Supponiamo che un sistema sia descritto dall'operatore densità
+\begin_inset Formula 
+\begin{equation}
+\rho=\sum_{i}p_{i}\left|a_{i}\right\rangle \left\langle a_{i}\right|\label{eq:2.12 - Sovrapposizione incoerente di autostati di A}
+\end{equation}
+
+\end_inset
+
+dove 
+\begin_inset Formula $\left|a_{i}\right\rangle $
+\end_inset
+
+ sono autostati di un'osservabile 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ È fondamentale osservare che la 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.12 - Sovrapposizione incoerente di autostati di A"
+
+\end_inset
+
+ descrive uno stato del sistema 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ differente dalla sovrapposizione:
+\begin_inset Formula 
+\[
+\left|s\right\rangle =\sum_{i}\sqrt{p_{i}}e^{i\phi_{i}}\left|a_{i}\right\rangle ,
+\]
+
+\end_inset
+
+sebbene ciò non si possa rilevare effettuando misure della sola osservabile
+ 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ La densità corrispondente a un tale stato è:
+\begin_inset Formula 
+\begin{equation}
+\rho=\left|s\right\rangle \left\langle s\right|=\sum_{i}p_{i}\left|a_{i}\right\rangle \left\langle a_{i}\right|+\sum_{i\neq j}\sqrt{p_{i}p_{j}}e^{i(\phi_{i}-\phi_{j})}\left|a_{i}\right\rangle \left\langle a_{j}\right|,\label{eq:2.13 - Sovrapposizione coerente, per confronto con 2.12}
+\end{equation}
+
+\end_inset
+
+l'interferenza fra le componenti 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+ è, almeno in linea di principio, empiricamente osservabile.
+ Se 
+\begin_inset Formula $O$
+\end_inset
+
+ è una qualunque osservabile, la distribuzione di probabilità degli autovalori
+ 
+\begin_inset Formula $o_{j}$
+\end_inset
+
+ è data da:
+\begin_inset Formula 
+\[
+f(o_{j})=\text{tr}(\rho\left|o_{j}\right\rangle \left\langle o_{j}\right|)=\left\langle o_{j}|\rho|o_{j}\right\rangle .
+\]
+
+\end_inset
+
+Nel caso dello stato puro 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.13 - Sovrapposizione coerente, per confronto con 2.12"
+
+\end_inset
+
+ questa è:
+\begin_inset Formula 
+\begin{equation}
+f(o_{j})=\underbrace{\sum_{i}p_{i}\left|\left\langle o_{j}|a_{i}\right\rangle \right|^{2}}_{\text{somma classica di probabilità}}+\quad\underbrace{\sum_{i\neq j}\sqrt{p_{i}p_{j}}e^{i(\phi_{i}-\phi_{j})}\left\langle o_{j}|a_{i}\right\rangle \left\langle a_{j}|o_{j}\right\rangle }_{\text{interferenza}},\label{eq:2.14 - Somma classica probabilità + interferenza}
+\end{equation}
+
+\end_inset
+
+mentre per lo stato impuro 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.12 - Sovrapposizione incoerente di autostati di A"
+
+\end_inset
+
+ abbiamo:
+\begin_inset Formula 
+\begin{equation}
+f(o_{j})=\underbrace{\sum_{i}p_{i}\left|\left\langle o_{j}|a_{i}\right\rangle \right|^{2}}_{\text{somma classica di probabilità}}.\label{eq:2.15 - Somma classica probabilità}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Possiamo perciò affermare che il sistema descritto dalla 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.12 - Sovrapposizione incoerente di autostati di A"
+
+\end_inset
+
+ si trova in una 
+\shape italic
+sovrapposizione incoerente 
+\shape default
+di autostati di 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Con ciò si intende dire che, sebbene tutti gli stati 
+\begin_inset Formula $\left|a_{i}\right\rangle $
+\end_inset
+
+ siano presenti nella sovrapposizione, non si osserva fra di essi interferenza
+ nella misura di osservabili del sistema, come si vede dal confronto di
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.14 - Somma classica probabilità + interferenza"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.15 - Somma classica probabilità"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sottolineiamo che la presenza o assenza di interferenza è sempre riferita
+ ad una particolare base (o a un particolare insieme di stati).
+ Del resto, le densità fin qui introdotte sono operatori autoaggiunti e,
+ in quanto tali, sempre diagonali in una qualche base ortonormale, per la
+ quale non vi è interferenza.
+\end_layout
+
+\begin_layout Section
+Misure ideali
+\end_layout
+
+\begin_layout Standard
+In questa sezione descriviamo il modello di Von Neumann dei processi di
+ misura ideali ed alcuni problemi associati a tale modello.
+ Mostriamo come l'ambiguità della base preferenziale può essere risolta
+ introducendo un terzo sistema nella catena sistema-apparato.
+\end_layout
+
+\begin_layout Subsection
+Lo schema di Von Neumann
+\end_layout
+
+\begin_layout Standard
+Lo schema di Von Neumann è un modello dell'interazione sistema-apparato
+ di misura basato sull'entanglement.
+ In questo modello, un sistema 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ ed un apparato 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ si trovano, per 
+\begin_inset Formula $t<0$
+\end_inset
+
+, nello stato separabile 
+\begin_inset Formula $(\sum_{i}c_{i}\left|s_{i}\right\rangle )\left|a_{0}\right\rangle $
+\end_inset
+
+, dove 
+\begin_inset Formula $\left\{ \left|s_{i}\right\rangle \right\} $
+\end_inset
+
+ è una base di 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+.
+ All'istante 
+\begin_inset Formula $t=0$
+\end_inset
+
+ i due iniziano ad interagire e, al termine dell'interazione, lo stato del
+ sistema composito è:
+\begin_inset Formula 
+\begin{equation}
+(\sum_{i}c_{i}\left|s_{i}\right\rangle )\left|a_{0}\right\rangle \overset{t}{\to}\sum_{i}c_{i}\left|s_{i}\right\rangle \left|a_{i}\right\rangle ,\label{eq:3.1 - Processo di Von Neumann}
+\end{equation}
+
+\end_inset
+
+dove 
+\begin_inset Formula $\left\{ \left|a_{i}\right\rangle \right\} $
+\end_inset
+
+ sono vettori ortonormali (non necessariamente una base) di 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+.
+ Di conseguenza, gli stati 
+\begin_inset Formula $\left|s_{i}\right\rangle $
+\end_inset
+
+ del sistema sono correlati in modo biunivoco agli stati 
+\begin_inset Formula $\left|a_{i}\right\rangle $
+\end_inset
+
+ dell'apparato; l'osservazione dell'apparato nello stato 
+\begin_inset Formula $\left|a_{i}\right\rangle $
+\end_inset
+
+ rivela immediatamente lo stato 
+\begin_inset Formula $\left|s_{i}\right\rangle $
+\end_inset
+
+ del sistema.
+ 
+\end_layout
+
+\begin_layout Standard
+Poniamoci ora il seguente problema: qual è l'osservabile di 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ misurata dall'apparato 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+? Ovviamente, a primo acchitto, saremmo tentati di rispondere: 
+\begin_inset Formula 
+\[
+\sigma=\sum_{k}k\left|s_{k}\right\rangle \left\langle s_{k}\right|.
+\]
+
+\end_inset
+
+Per mostrare che, di fatto, questa conclusione non segue dalla 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.1 - Processo di Von Neumann"
+
+\end_inset
+
+, consideriamo un modello semplicissimo, che illustra questa ambiguità dello
+ schema di Von Neumann in maniera evidente.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec: c-not e base preferenziale"
+
+\end_inset
+
+Il c-NOT quantistico e il problema della base preferenziale
+\end_layout
+
+\begin_layout Standard
+Consideriamo due sistemi a due stati 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+ e 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+, con ket di base 
+\begin_inset Formula $\left\{ \left|0\right\rangle _{c},\left|1\right\rangle _{c}\right\} $
+\end_inset
+
+ e 
+\begin_inset Formula $\left\{ \left|0\right\rangle _{t},\left|1\right\rangle _{t}\right\} $
+\end_inset
+
+, interagenti tramite l'hamiltoniano:
+\begin_inset Formula 
+\begin{equation}
+H=g\left|1\right\rangle \left\langle 1\right|_{c}\left|-\right\rangle \left\langle -\right|_{t},\label{eq:3.2 - Hamiltoniano c-not}
+\end{equation}
+
+\end_inset
+
+dove
+\begin_inset Formula 
+\begin{equation}
+\left|\pm\right\rangle =\frac{1}{\sqrt{2}}(\left|1\right\rangle \pm\left|0\right\rangle ).\label{eq:3.3 - Base coniugata qbit (trasformata di Hadamard)}
+\end{equation}
+
+\end_inset
+
+Supponiamo che i sistemi interagiscano per un tempo 
+\begin_inset Formula $t=\dfrac{\hbar\pi}{g}$
+\end_inset
+
+.
+ Allora, in seguito all'interazione:
+\begin_inset Formula 
+\begin{eqnarray}
+\left|0\right\rangle _{c}\left|0\right\rangle _{t} & \to & \left|0\right\rangle _{c}\left|0\right\rangle _{t},\nonumber \\
+\left|0\right\rangle _{c}\left|1\right\rangle _{t} & \to & \left|0\right\rangle _{c}\left|1\right\rangle _{t},\nonumber \\
+\left|1\right\rangle _{c}\left|0\right\rangle _{t} & \to & \left|1\right\rangle _{c}\left|1\right\rangle _{t},\nonumber \\
+\left|1\right\rangle _{c}\left|1\right\rangle _{t} & \to & \left|1\right\rangle _{c}\left|0\right\rangle _{t}.\label{eq:3.4 - Tavola verità c-not}
+\end{eqnarray}
+
+\end_inset
+
+Questo modello è chiamato c-NOT quantistico
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+In analogia al c-NOT classico, ovvero la funzione a due valori booleani
+ di due variabili booleane:
+\begin_inset Formula 
+\[
+\left(c,t\right)\mapsto\left(c,c\bar{t}+\bar{c}t\right),
+\]
+
+\end_inset
+
+la cui tavola di verità coincide, con le opportune identificazioni, con
+ le 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.4 - Tavola verità c-not"
+
+\end_inset
+
+, come si verifica facilmente.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zurek (2003)"
+
+\end_inset
+
+.
+ Il sistema 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+ (control) agisce come un “interruttore” per lo scambio dei ket 
+\begin_inset Formula $\left|0\right\rangle _{t}$
+\end_inset
+
+ e 
+\begin_inset Formula $\left|1\right\rangle _{t}$
+\end_inset
+
+ del sistema 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ (target).
+ In particolare, se consideriamo soltanto la prima e terza equazione delle
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.4 - Tavola verità c-not"
+
+\end_inset
+
+, abbiamo un processo di Von Neumann:
+\begin_inset Formula 
+\begin{eqnarray}
+\left|0\right\rangle _{c}\left|0\right\rangle _{t} & \to & \left|0\right\rangle _{c}\left|0\right\rangle _{t}\nonumber \\
+\left|1\right\rangle _{c}\left|0\right\rangle _{t} & \to & \left|1\right\rangle _{c}\left|1\right\rangle _{t}\label{eq:3.5 - Processo di V.N. c-not}
+\end{eqnarray}
+
+\end_inset
+
+dove l'apparato è il target 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+.
+ Supponiamo ora che lo stato iniziale di 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+ sia:
+\begin_inset Formula 
+\[
+\left|+\right\rangle _{c}=\frac{1}{\sqrt{2}}(\left|1\right\rangle _{c}+\left|0\right\rangle _{c}).
+\]
+
+\end_inset
+
+L'evoluzione 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.1 - Processo di Von Neumann"
+
+\end_inset
+
+ dà:
+\begin_inset Formula 
+\[
+\left|+\right\rangle _{c}\left|0\right\rangle _{t}\to\dfrac{1}{\sqrt{2}}(\left|1\right\rangle _{c}\left|1\right\rangle _{t}+\left|0\right\rangle _{c}\left|0\right\rangle _{t}).
+\]
+
+\end_inset
+
+D'altra parte, come mostra un semplice calcolo:
+\begin_inset Formula 
+\begin{equation}
+\dfrac{1}{\sqrt{2}}(\left|1\right\rangle _{c}\left|1\right\rangle _{t}+\left|0\right\rangle _{c}\left|0\right\rangle _{t})=\dfrac{1}{\sqrt{2}}(\left|+\right\rangle _{c}\left|+\right\rangle _{t}+\left|-\right\rangle _{c}\left|-\right\rangle _{t}).\label{eq:3.6 - Ambiguità stato finale c-not}
+\end{equation}
+
+\end_inset
+
+Di conseguenza, gli stati 
+\begin_inset Formula $\left|0\right\rangle ,\left|1\right\rangle $
+\end_inset
+
+ di 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+ e 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+, sono correlati allo stesso modo degli stati 
+\begin_inset Formula $\left|+\right\rangle ,\left|-\right\rangle $
+\end_inset
+
+.
+ Dalla sola forma dello stato finale 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.6 - Ambiguità stato finale c-not"
+
+\end_inset
+
+ è impossibile determinare a priori in quale stato venga osservato l'apparato,
+ se 
+\begin_inset Formula $\left|0\right\rangle _{t},$
+\end_inset
+
+ 
+\begin_inset Formula $\left|1\right\rangle _{t}$
+\end_inset
+
+ oppure 
+\begin_inset Formula $\left|\pm\right\rangle _{t},$
+\end_inset
+
+ o ancora una qualsiasi sovrapposizione di 
+\begin_inset Formula $\left|0\right\rangle _{t}$
+\end_inset
+
+ e 
+\begin_inset Formula $\left|1\right\rangle _{t}$
+\end_inset
+
+.
+ Ne concludiamo, con Zurek 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zurek (1981) Into what mixture"
+
+\end_inset
+
+ che:
+\end_layout
+
+\begin_layout Quote
+«La meccanica quantistica, quando applicata alla coppia 
+\shape italic
+isolata
+\shape default
+ di un sistema e un apparato, non è in grado di determinare quale osservabile
+ sia stata misurata.»
+\end_layout
+
+\begin_layout Standard
+Questo è il cosiddetto “problema della base preferenziale” e dimostra che
+ lo schema di Von Neumann, come modello di misura, è incompleto.
+\end_layout
+
+\begin_layout Standard
+Possiamo andare oltre e mostrare che il modello qui presentato è ambiguo
+ non solo nella definizione dell'osservabile misurata, ma anche nella definizion
+e di “apparato” e “sistema”.
+ Per capirlo, osserviamo che, in seguito alla stessa interazione, si ha
+ anche:
+\begin_inset Formula 
+\begin{eqnarray}
+\left|-\right\rangle _{c}\left|-\right\rangle _{t} & \to & \left|+\right\rangle _{c}\left|-\right\rangle _{t}\nonumber \\
+\left|-\right\rangle _{c}\left|+\right\rangle _{t} & \to & \left|-\right\rangle _{c}\left|+\right\rangle _{t}\nonumber \\
+\left|+\right\rangle _{c}\left|-\right\rangle _{t} & \to & \left|-\right\rangle _{c}\left|-\right\rangle _{t}\nonumber \\
+\left|+\right\rangle _{c}\left|+\right\rangle _{t} & \to & \left|+\right\rangle _{c}\left|+\right\rangle _{t}.\label{eq:3.7 - Tavola verità c-not (base coniugata}
+\end{eqnarray}
+
+\end_inset
+
+Ma questa è esattamente la 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.4 - Tavola verità c-not"
+
+\end_inset
+
+ con “1,c” e “-,t” scambiati! Di conseguenza, se si utilizza la base 
+\begin_inset Formula $\left\{ \left|\pm\right\rangle \right\} $
+\end_inset
+
+ il control 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+ si comporta come “apparato” e il target 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ come “sistema”.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Box Shaded
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Paragraph
+Una soluzione del problema della base preferenziale
+\end_layout
+
+\begin_layout Plain Layout
+Consideriamo un terzo sistema a due stati 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ interagente con il target 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ tramite lo stesso hamiltoniano 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.2 - Hamiltoniano c-not"
+
+\end_inset
+
+.
+ Abbiamo perciò l'evoluzione:
+\begin_inset Formula 
+\begin{eqnarray}
+\left|0\right\rangle _{t}\left|0\right\rangle _{e} & \to & \left|0\right\rangle _{t}\left|0\right\rangle _{e}\nonumber \\
+\left|1\right\rangle _{t}\left|0\right\rangle _{e} & \to & \left|1\right\rangle _{t}\left|1\right\rangle _{e}.\label{eq:3.8 - Evoluzione target - ambiente}
+\end{eqnarray}
+
+\end_inset
+
+Supponiamo che il processo di misura avvenga in due fasi: nella prima fase
+ 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+ interagisce con 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+, mentre 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ non interagisce; nella seconda fase 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+ interagisce con 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+, mentre 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+ non interagisce.
+ Ne risulta la seguente evoluzione:
+\begin_inset Formula 
+\begin{eqnarray}
+\left|0\right\rangle _{c}\left|0\right\rangle _{t}\left|0\right\rangle _{e} & \overset{{\cal CT}}{\to}\left|0\right\rangle _{c}\left|0\right\rangle _{t}\left|0\right\rangle _{e} & \overset{{\cal TE}}{\to}\left|0\right\rangle _{c}\left|0\right\rangle _{t}\left|0\right\rangle _{e}\label{eq:3.9 - Evoluzione control-target-ambiente}\\
+\left|1\right\rangle _{c}\left|0\right\rangle _{t}\left|0\right\rangle _{e} & \overset{{\cal CT}}{\to}\left|1\right\rangle _{c}\left|1\right\rangle _{t}\left|0\right\rangle _{e} & \overset{{\cal TE}}{\to}\left|1\right\rangle _{c}\left|1\right\rangle _{t}\left|1\right\rangle _{e}.\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+Consideriamo nuovamente lo stato 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.6 - Ambiguità stato finale c-not"
+
+\end_inset
+
+.
+ Abbiamo:
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{\sqrt{2}}(\left|1\right\rangle _{c}+\left|0\right\rangle _{c})\left|0\right\rangle _{t}\left|0\right\rangle _{e}\to\frac{1}{\sqrt{2}}(\left|1\right\rangle _{c}\left|1\right\rangle _{t}\left|1\right\rangle _{e}+\left|0\right\rangle _{c}\left|0\right\rangle _{t}\left|0\right\rangle _{e}).\label{eq:3.10 - Stato finale ambiguo con ambiente}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Come prima, una misura dell'osservabile 
+\begin_inset Formula 
+\begin{equation}
+A_{t}=\left|1\right\rangle \left\langle 1\right|_{t}-\left|0\right\rangle \left\langle 0\right|_{t}\label{eq:3.11 - Osservabile A target}
+\end{equation}
+
+\end_inset
+
+fornisce un'informazione completa sul valore di 
+\begin_inset Formula $A_{c}$
+\end_inset
+
+.
+ D'altra parte, supponiamo di misurare:
+\begin_inset Formula 
+\begin{equation}
+B_{t}=\left|+\right\rangle \left\langle +\right|_{t}-\left|-\right\rangle \left\langle -\right|_{t}\label{eq:3.12 - Osservabile B target}
+\end{equation}
+
+\end_inset
+
+e di trovare 
+\begin_inset Formula $\left|+\right\rangle _{t}$
+\end_inset
+
+.
+ Allora il nuovo stato sarà, in seguito alla misura:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{1}{\sqrt{2}}(\left|1\right\rangle _{c}\left|1\right\rangle _{t}\left|1\right\rangle _{e}+\left|0\right\rangle _{c}\left|0\right\rangle _{t}\left|0\right\rangle _{e}) & \to & \left|+\right\rangle \left\langle +\right|_{t}\left[\dfrac{1}{\sqrt{2}}(\left|1\right\rangle _{c}\left|1\right\rangle _{t}\left|1\right\rangle _{e}+\left|0\right\rangle _{c}\left|0\right\rangle _{t}\left|0\right\rangle _{e})\right]\nonumber \\
+ & = & \dfrac{1}{2}(\left|1\right\rangle _{c}\left|+\right\rangle _{t}\left|1\right\rangle _{e}+\left|0\right\rangle _{c}\left|+\right\rangle _{t}\left|0\right\rangle _{e})\nonumber \\
+ & \propto & \dfrac{1}{\sqrt{2}}(\left|+\right\rangle _{c}\left|+\right\rangle _{t}\left|+\right\rangle _{e}+\left|-\right\rangle _{c}\left|+\right\rangle _{t}\left|-\right\rangle _{e})\label{eq:3.13 - Stato finale dopo misura di B}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Di conseguenza, da una misura di 
+\begin_inset Formula $B_{t}$
+\end_inset
+
+ non abbiamo alcun modo di inferire il valore di 
+\begin_inset Formula $B_{c}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Più in generale, il sistema 
+\begin_inset Formula ${\cal CT}$
+\end_inset
+
+ è, in seguito all'interazione con 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+, descritto da una densità:
+\begin_inset Formula 
+\[
+\rho_{{\cal CT}}=p\left|1\right\rangle \left\langle 1\right|_{c}\left|1\right\rangle \left\langle 1\right|_{t}+q\left|0\right\rangle \left\langle 0\right|_{c}\left|0\right\rangle \left\langle 0\right|_{t},
+\]
+
+\end_inset
+
+dove 
+\begin_inset Formula $p+q=1$
+\end_inset
+
+.
+ La densità condizionale di 
+\begin_inset Formula ${\cal C}$
+\end_inset
+
+ secondo lo stato:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+\left|\theta,\phi\right\rangle _{t}=\cos\frac{\theta}{2}e^{-i\phi}\left|1\right\rangle _{t}+\sin\frac{\theta}{2}e^{i\phi}\left|0\right\rangle _{t}\label{eq:3.14 - Stato generico target}
+\end{equation}
+
+\end_inset
+
+è
+\begin_inset Formula 
+\[
+\rho_{{\cal C}\left|\theta,\phi\right\rangle _{t}}=\dfrac{1}{p\cos^{2}\frac{\theta}{2}+q\sin^{2}\frac{\theta}{2}}\left[p\cos^{2}\frac{\theta}{2}\left|1\right\rangle \left\langle 1\right|_{c}+q\sin^{2}\frac{\theta}{2}\left|0\right\rangle \left\langle 0\right|_{c}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+e la probabilità condizionale di uno stato 
+\begin_inset Formula $\left|\tilde{\theta},\tilde{\phi}\right\rangle _{c}$
+\end_inset
+
+ è:
+\begin_inset Formula 
+\begin{equation}
+f(\tilde{\theta},\tilde{\phi}|\theta,\phi)=\dfrac{p\cos^{2}\frac{\theta}{2}\cos^{2}\frac{\tilde{\theta}}{2}+q\sin^{2}\frac{\theta}{2}\sin^{2}\frac{\tilde{\theta}}{2}}{p\cos^{2}\frac{\theta}{2}+q\sin^{2}\frac{\theta}{2}}.\label{eq:Probabilità condizionale theta, phi}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Box Shaded
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+Inaspettatamente, la probabilità condizionale non dipende dagli angoli azimutali
+ 
+\begin_inset Formula $\phi$
+\end_inset
+
+ e 
+\begin_inset Formula $\tilde{\phi}$
+\end_inset
+
+.
+ Fissato 
+\begin_inset Formula $\theta$
+\end_inset
+
+, la precedente espressione assume il suo massimo per 
+\begin_inset Formula $\tilde{\theta}=0$
+\end_inset
+
+ o 
+\begin_inset Formula $\tilde{\theta}=\pi$
+\end_inset
+
+, a seconda che sia 
+\begin_inset Formula $p\cos^{2}\frac{\theta}{2}\gtrless q\sin^{2}\frac{\theta}{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Una correlazione perfetta fra gli stati del sistema e gli stati dell'apparato
+ si ha soltanto nel caso in cui l'osservabile misurata per entrambi sia:
+ 
+\begin_inset Formula 
+\begin{equation}
+A=\left|1\right\rangle \left\langle 1\right|-\left|0\right\rangle \left\langle 0\right|.\label{eq:3.18 - La buona osservabile}
+\end{equation}
+
+\end_inset
+
+Vediamo perciò che l'introduzione di un terzo sistema 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ fornisce un criterio oggettivo per determinare qual è l'osservabile misurata
+ dall'apparato 
+\begin_inset Formula ${\cal T}$
+\end_inset
+
+: questa è l'unica per la quale si ha correlazione perfetta (
+\begin_inset Formula $f=1$
+\end_inset
+
+) fra i valori misurati sull'apparato e i valori misurati sul sistema
+\size small
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:3.4 Il problema degli esiti"
+
+\end_inset
+
+Il problema degli esiti
+\end_layout
+
+\begin_layout Standard
+Abbiamo illustrato lo schema di Von Neumann come modello idealizzato del
+ processo di misura.
+ Tuttavia dobbiamo riconoscere che, anche qualora si sia in grado di risolvere
+ il problema della base preferenziale, non possiamo considerare questo schema
+ come esaustivo nella descrizione di una misura dal punto di vista dell'osservat
+ore.
+ Il motivo è semplice: lo stato finale di 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.1 - Processo di Von Neumann"
+
+\end_inset
+
+ è ancora una sovrapposizione di stati diversi del sistema entangled 
+\begin_inset Formula ${\cal SA}$
+\end_inset
+
+.
+ In questa descrizione non è contenuto in alcun modo il fatto che l'osservatore,
+ al termine della misura, ottiene uno e un solo esito.
+ Questo viene chiamato, da alcuni, il “problema degli esiti” 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Schlosshauer Q2C"
+
+\end_inset
+
+ e non è altro che il problema del collasso del vettore di stato (si veda
+ anche la discussione al termine del paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Assiomi della meccanica quantistica"
+
+\end_inset
+
+).
+ La questione, talvolta dichiarata insolubile
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Zurek 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zurek (1981) Into what mixture"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Plain Layout
+«[...]Hence, even though below we do not face the insoluble question of quantum
+ theory of measurement: “What causes the collapse of the system-apparatus-enviro
+nment combined wave function?” we do determine into what mixture the wave
+ function appears to have collapsed.»
+\end_layout
+
+\end_inset
+
+, di “cosa causi il collasso della funzione d'onda” ha dato luogo a svariate
+ interpretazioni della meccanica quantistica, delle quali non discuteremo.
+\end_layout
+
+\begin_layout Standard
+Per questo motivo, appare opportuno sottolineare quale sia lo scopo e il
+ significato dello schema di Von Neumann nell'ambito dei processi di misura.
+ Si assume qui che il valore dell'osservabile misurata venga dedotto dal
+ valore di una rispettiva osservabile dell'apparato, come la posizione di
+ un puntatore.
+ L'apparato è macroscopico, nel senso che le sovrapposizioni di diversi
+ stati localizzati del puntatore non sono osservabili, per via dei brevissimi
+ tempi di decoerenza di tali sovrapposizioni.
+ Lo schema di Von Neumann descrive esattamente questo processo di amplificazione
+ e la decoerenza ha il merito di chiarire quali siano gli stati dell'apparato
+ in grado di mantenere una correlazione persistente con gli stati del sistema
+ e che, al tempo stesso, possano essere osservati per tempi sufficientemente
+ lunghi.
+ Come discuteremo nel paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Misura-con-decoerenza"
+
+\end_inset
+
+, dopo un tempo di decoerenza, lo sperimentatore può supporre che il complesso
+ sistema-apparato si trovi in uno degli stati finali 
+\begin_inset Formula $\left|s_{i}\right\rangle \left|a_{i}\right\rangle $
+\end_inset
+
+, con probabilità 
+\begin_inset Formula $p_{i}=\left|c_{i}\right|^{2}$
+\end_inset
+
+, senza incorrere con ciò in nessuna contraddizione.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+La decoerenza
+\end_layout
+
+\begin_layout Standard
+Siamo ora nella posizione di introdurre l'argomento principale della presente
+ dissertazione, la decoerenza.
+ Esamineremo la descrizione formale della decoerenza, discuteremo le regole
+ di superselezione e, infine, presenteremo un modello di decoerenza collisionale.
+\end_layout
+
+\begin_layout Section
+La descrizione formale della decoerenza
+\end_layout
+
+\begin_layout Standard
+In questa sezione introduciamo il fenomeno della decoerenza ed esaminiamo
+ un modello semplice.
+ 
+\end_layout
+
+\begin_layout Standard
+La decoerenza è la perdita di una relazione di fase definita fra le diverse
+ componenti di una sovrapposizione di stati.
+ Essa è dovuta all'interazione con l'ambiente e può essere vista come un'azione
+ 
+\shape italic
+del 
+\shape default
+sistema 
+\shape italic
+sull'
+\shape default
+ambiente.
+\end_layout
+
+\begin_layout Standard
+La perdita di una relazione di fase implica la non osservabilità dell'interferen
+za.
+ Per una sovrapposizione di stati soggetta a decoerenza si applicano le
+ regole classiche di somma delle probabilità.
+\end_layout
+
+\begin_layout Standard
+La validità della teoria della decoerenza si basa su alcune assunzioni circa
+ l'interazione fra sistema e ambiente.
+ Lo studio di modelli specifici permette di indagare sulla validità di queste
+ assunzioni.
+\end_layout
+
+\begin_layout Subsection
+La decoerenza come risultato dell'interazione con l'ambiente
+\end_layout
+
+\begin_layout Standard
+Consideriamo una sovrapposizione 
+\begin_inset Formula $\sum_{i}c_{i}\left|s_{i}\right\rangle $
+\end_inset
+
+ di stati di un sistema quantistico.
+ Concettualmente, possiamo scomporre l'informazione contenuta in tale sovrapposi
+zione in due parti.
+ La prima parte riguarda il peso con cui le diverse componenti entrano nella
+ sovrapposizione, quantificato dai moduli 
+\begin_inset Formula $\left|c_{i}\right|^{2}$
+\end_inset
+
+.
+ La seconda concerne le relazioni di fase fra le diverse componenti, ovvero
+ le fasi dei numeri complessi 
+\begin_inset Formula $c_{i}c_{j}^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La decoerenza è, essenzialmente, la perdita della seconda parte d'informazione,
+ in seguito all'interazione del sistema con l'ambiente.
+ A livello globale, piuttosto che di perdita, dovremmo parlare di 
+\shape italic
+delocalizzazione
+\shape default
+.
+ Tuttavia, la decoerenza è in pratica un fenomeno irreversibile: la ricostruzion
+e di una sovrapposizione coerente al livello del sistema richiederebbe un
+ controllo totale dei gradi di libertà dell'ambiente, il che è assolutamente
+ irrealizzabile.
+ Di conseguenza, se ci limitiamo a guardare il sistema, la seconda parte
+ d'informazione è (dopo un tempo di decoerenza) del tutto persa.
+\end_layout
+
+\begin_layout Standard
+Per comprendere come ciò possa realizzarsi, supponiamo che il sistema 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ interagisca con l'ambiente 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ e che ad un certo istante, diciamo 
+\begin_inset Formula $t=0$
+\end_inset
+
+, il sistema composito 
+\begin_inset Formula ${\cal SE}$
+\end_inset
+
+ si trovi in uno stato separabile:
+\begin_inset Formula 
+\begin{equation}
+\left|s\right\rangle \left|E_{0}\right\rangle =(\sum_{i}c_{i}\left|s_{i}\right\rangle )\left|E_{0}\right\rangle ,\label{eq:4.1 - Stato iniziale separabile SE}
+\end{equation}
+
+\end_inset
+
+Assumiamo che l'interazione fra sistema e ambiente dia luogo a un'evoluzione
+ schematizzabile come un processo di Von Neumann:
+\begin_inset Formula 
+\begin{equation}
+\left|s\right\rangle \left|E_{0}\right\rangle =(\sum_{i}c_{i}\left|s_{i}\right\rangle )\left|E_{0}\right\rangle \to\sum_{i}c_{i}\left|s_{i}\right\rangle \left|E_{i}\right\rangle .\label{eq:4.2 - Processo di decoerenza alla V.N.}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Parafrasando la 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4.2 - Processo di decoerenza alla V.N."
+
+\end_inset
+
+, che è la descrizione formale del processo di decoerenza, l'interazione
+ ha l'effetto di stabilire delle correlazioni fra sistema e ambiente, del
+ tutto analoghe alle correlazioni stabilite in un'interazione sistema-apparato.
+ 
+\end_layout
+
+\begin_layout Standard
+In linea di principio, l'interazione fra sistema e apparato è reversibile.
+ Per fare un esempio concreto, consideriamo un elettrone in uno stato spazialmen
+te localizzato, che scriviamo sottoforma di bispinore: 
+\begin_inset Formula 
+\[
+\Psi(\mathbf{r})=\begin{pmatrix}\alpha\\
+\beta
+\end{pmatrix}\psi_{0}(\mathbf{r}),
+\]
+
+\end_inset
+
+che attraversi un magnete di Stern-Gerlach.
+ Un po' artificialmente, possiamo considerare lo spin come “il sistema”
+ e la posizione come “l'apparato”; l'hamiltoniano di interazione sistema-apparat
+o è:
+\begin_inset Formula 
+\[
+H_{{\cal SA}}=\frac{\left|e\right|}{m}S_{z}B_{z}(\mathbf{r}).
+\]
+
+\end_inset
+
+L'evoluzione temporale risulta in due funzioni d'onda 
+\begin_inset Formula $\psi_{\uparrow}$
+\end_inset
+
+ e 
+\begin_inset Formula $\psi_{\downarrow}$
+\end_inset
+
+, corrispondenti alle due componenti del bispinore, con una sovrapposizione
+ spaziale trascurabile:
+\begin_inset Formula 
+\[
+\Psi(\mathbf{r})=\begin{pmatrix}\alpha\\
+\beta
+\end{pmatrix}\psi_{0}(\mathbf{r})\to\begin{pmatrix}\alpha\psi_{\uparrow}(\mathbf{r})\\
+\beta\psi_{\downarrow}(\mathbf{r})
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A questo punto possiamo misurare la componente 
+\begin_inset Formula $z$
+\end_inset
+
+ dello spin dell'elettrone ponendo, in uscita dal magnete, uno schermo fosforesc
+ente che interagisca fortemente col grado di libertà “posizione” dell'elettrone
+ (e che, in un'analisi in termini di decoerenza, costituirebbe “l'ambiente”).
+ D'altra parte, possiamo costruire un sistema di tre magneti come in figura
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:4.SG - Apparato di Stern-Gerlach"
+
+\end_inset
+
+ e ricombinare le due funzioni d'onda delocalizzate 
+\begin_inset Formula $\psi_{\uparrow}$
+\end_inset
+
+ e 
+\begin_inset Formula $\psi_{\downarrow}$
+\end_inset
+
+, in modo da riprodurre, in uscita dall'apparato, la stessa sovrapposizione
+ di stati di spin:
+\begin_inset Formula 
+\[
+\begin{pmatrix}\alpha\psi_{\uparrow}(\mathbf{r})\\
+\beta\psi_{\downarrow}(\mathbf{r})
+\end{pmatrix}\to\begin{pmatrix}\alpha\\
+\beta
+\end{pmatrix}\psi_{1}(\mathbf{r}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename SG reversibile.png
+	display false
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:4.SG - Apparato di Stern-Gerlach"
+
+\end_inset
+
+Apparato di Stern-Gerlach reversibile
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La situazione è assai differente qualora si consideri l'interazione del
+ sistema con l'ambiente.
+ Qui i gradi di libertà dell'ambiente sono del tutto incontrollabili, essendo
+ l'ambiente costituito da un numero enorme di componenti (molecole d'aria,
+ fotoni, spin etc.) che interagiscono singolarmente con il sistema stabilendo
+ con esso correlazioni tramite processi della forma 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4.2 - Processo di decoerenza alla V.N."
+
+\end_inset
+
+; inoltre, queste stesse componenti, interagiscono a loro volta con l'ambiente
+ più remoto del sistema ed i tempi di ricorrenza sono enormemente maggiori
+ dei tempi di decoerenza.
+ L'informazione sulla relazione di fase fra le diverse componenti della
+ base 
+\begin_inset Formula $\left\{ \left|s_{i}\right\rangle \right\} $
+\end_inset
+
+ del sistema viene rapidamente dispersa ed è, all'atto pratico, del tutto
+ irrecuperabile.
+\end_layout
+
+\begin_layout Standard
+Consideriamo lo stesso processo 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4.2 - Processo di decoerenza alla V.N."
+
+\end_inset
+
+ dal punto di vista dell'operatore densità del sistema.
+ Come si è visto (teorema 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:2.2 - Densità ridotta per descrizione locale"
+
+\end_inset
+
+), l'operatore densità esaurisce l'informazione disponibile riguardo alle
+ misure locali sul sistema, ovvero contiene interamente la statistica di
+ queste misure.
+ La densità 
+\shape italic
+pre
+\shape default
+-decoerenza del sistema composto 
+\begin_inset Formula ${\cal SE}$
+\end_inset
+
+ è:
+\begin_inset Formula 
+\begin{equation}
+\rho_{{\cal S}{\cal E}}^{\text{pre}}=\left|s\right\rangle \left\langle s\right|\otimes\left|E_{0}\right\rangle \left\langle E_{0}\right|=(\sum_{ij}c_{i}c_{j}^{*}\left|s_{i}\right\rangle \left\langle s_{j}\right|)\otimes\left|E_{0}\right\rangle \left\langle E_{0}\right|,\label{eq:4.3 - Densità predecoerenza SE}
+\end{equation}
+
+\end_inset
+
+mentre la densità 
+\shape italic
+post
+\shape default
+-decoerenza:
+\begin_inset Formula 
+\begin{equation}
+\rho_{{\cal SE}}^{\text{post}}=\sum_{ij}c_{i}c_{j}^{*}\left|s_{i}\right\rangle \left|E_{i}\right\rangle \left\langle s_{j}\right|\left\langle E_{j}\right|.\label{eq:4.4 - Densità postdecoerenza E}
+\end{equation}
+
+\end_inset
+
+Al livello del sistema:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\rho_{{\cal S}}^{\text{pre}}=\sum_{ij}c_{i}c_{j}^{*}\left|s_{i}\right\rangle \left\langle s_{j}\right|\label{eq:4.5 - Densità predecoerenza S}
+\end{equation}
+
+\end_inset
+
+e
+\begin_inset Formula 
+\begin{eqnarray}
+\rho_{{\cal S}}^{\text{post}} & = & \text{tr}_{{\cal E}}(\rho_{{\cal SE}}^{\text{post}})=\sum_{ij}c_{i}c_{j}^{*}\left\langle E_{j}|E_{i}\right\rangle \left|s_{i}\right\rangle \left\langle s_{j}\right|\nonumber \\
+ & \approx & \sum_{i}\left|c_{i}\right|^{2}\left|s_{i}\right\rangle \left\langle s_{i}\right|.\label{eq:4.6 - Densità postdecoerenza S}
+\end{eqnarray}
+
+\end_inset
+
+L'ultimo passaggio segue se:
+\begin_inset Formula 
+\begin{equation}
+\left\langle E_{j}|E_{i}\right\rangle \approx\delta_{ij},\label{eq:4.7 - <Ej|Ei> = 0}
+\end{equation}
+
+\end_inset
+
+ovvero se gli stati finali dell'ambiente sono approssimativamente ortogonali.
+ La validità di quest'assunzione è il nocciolo della teoria della decoerenza.
+ Una parte cospicua del lavoro di ricerca in questo campo consiste nella
+ formulazione di modelli realistici dell'interazione tra sistema e ambiente,
+ atti a studiare la validità della 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4.7 - <Ej|Ei> = 0"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La scala dei tempi in cui i kets dell'ambiente diventano ortogonali definisce
+ un 
+\shape italic
+tempo di decoerenza 
+\begin_inset Formula $\tau_{\text{D}}$
+\end_inset
+
+.
+ 
+\shape default
+In alcuni casi, il bracket 
+\begin_inset Formula $\left\langle E_{j}|E_{i}\right\rangle $
+\end_inset
+
+, noto come 
+\shape italic
+fattore di decoerenza
+\shape default
+, può avere un andamento esponenziale:
+\begin_inset Formula 
+\begin{equation}
+\left\langle E_{j}|E_{i}\right\rangle \propto e^{-\frac{t}{\tau_{\text{D}}}},\label{eq:4.8 - <Ej|Ei> = exp(...)}
+\end{equation}
+
+\end_inset
+
+dove 
+\begin_inset Formula $\tau_{\text{D}}$
+\end_inset
+
+ è funzione dei parametri che entrano nel modello.
+ Un caso esemplare è quello della localizzazione di una particella massiva
+ in un gas di particelle, che discuteremo in Sezione 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:6 - Decoerenza collisionale e localizzazione"
+
+\end_inset
+
+.
+ Qui gli stati di base del sistema sono gli stati localizzati 
+\begin_inset Formula $\left\{ \left|\mathbf{r}\right\rangle \right\} $
+\end_inset
+
+ e il fattore di decoerenza ha, per distanze 
+\begin_inset Formula $\left|\mathbf{r}_{i}-\mathbf{r}_{j}\right|$
+\end_inset
+
+ piccole rispetto alla lunghezza d'onda termica del gas, un andamento del
+ tipo:
+\begin_inset Formula 
+\begin{equation}
+\left\langle E(\mathbf{r}_{j})|E_{i}(\mathbf{r}_{i})\right\rangle =e^{-\Lambda\left|\mathbf{r}_{i}-\mathbf{r}_{j}\right|^{2}t}.\label{eq:4.9 - <Ej|Ei> (localizzazione)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La densità post-decoerenza del sistema 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4.6 - Densità postdecoerenza S"
+
+\end_inset
+
+ è, con ottima approssimazione, della forma di una sovrapposizione incoerente
+ (v.
+ par.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:2.3 - Fenomeni d'interferenza"
+
+\end_inset
+
+) con 
+\begin_inset Formula $p_{i}=\left|c_{i}\right|^{2}$
+\end_inset
+
+.
+ Come si è visto, per tale sovrapposizione, non vi è interferenza.
+ Di conseguenza: 
+\shape italic
+la decoerenza di una sovrapposizione di stati è sempre accompagnata dalla
+ soppressione degli effetti d'interferenza
+\shape default
+.
+ Per lo stato post-decoerenza, vale la regola classica di somma delle probabilit
+à (cfr.
+ par.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:2.3 - Fenomeni d'interferenza"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Prima di passare all'esame di un semplice modello di decoerenza, discutiamo
+ brevemente un'altra caratteristica del processo di decoerenza qui schematizzato.
+ Dalla 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4.2 - Processo di decoerenza alla V.N."
+
+\end_inset
+
+ si vede che gli stati della base 
+\begin_inset Formula $\left\{ \left|s_{i}\right\rangle \right\} $
+\end_inset
+
+ non vengono modificati dall'interazione.
+ Se il sistema si trova inizialmente nello stato 
+\begin_inset Formula $\left|s_{i}\right\rangle $
+\end_inset
+
+, al termine dell'interazione 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4.2 - Processo di decoerenza alla V.N."
+
+\end_inset
+
+ il sistema persiste nello stesso stato.
+ A questo proposito, si dice spesso che il processo di decoerenza è un'azione
+ 
+\shape italic
+del 
+\shape default
+sistema 
+\shape italic
+sull
+\shape default
+'ambiente (nonostante questa azione abbia un'influenza sullo stesso sistema).
+\end_layout
+
+\begin_layout Standard
+Chiaramente, l'interazione fra sistema e ambiente gioca un ruolo anche in
+ meccanica classica.
+ Una particella carica passante per uno spessore di materiale subisce perdite
+ di energia per ionizzazione e l'analisi di questo processo può, con una
+ certa approssimazione, essere svolta in termini puramente classici: questo
+ è un processo di 
+\shape italic
+dissipazione
+\shape default
+, ovvero di perdita di energia da parte del sistema dovuta all'interazione
+ con l'ambiente.
+ A differenza dei processi di decoerenza, i processi di dissipazione 
+\shape italic
+alterano
+\shape default
+ sempre gli stati del sistema.
+ Mentre la decoerenza è formalmente espressa da un'azione del sistema sull'ambie
+nte, come in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4.2 - Processo di decoerenza alla V.N."
+
+\end_inset
+
+, la dissipazione implica chiaramente un'azione reciproca fra le parti interagen
+ti.
+ I tempi di dissipazione sono, tipicamente, svariati ordini di grandezza
+ superiori ai tempi di decoerenza, per cui spesso, nell'analisi dei processi
+ di decoerenza, possiamo trascurare gli effetti dissipativi.
+ 
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:4.2 - Decoerenza di uno spin"
+
+\end_inset
+
+Decoerenza di uno spin - un modello semplice
+\end_layout
+
+\begin_layout Standard
+In questo paragrafo descriviamo un semplice modello, originariamente introdotto
+ da Zurek 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zurek (1982) Einselection rules"
+
+\end_inset
+
+, e ripreso più recentemente da Cucchietti, Paz e Zurek 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cucchietti Paz Zurek (2005) Gaussian decoherence"
+
+\end_inset
+
+, per illustrare i meccanismi di decoerenza in un caso risolubile analiticamente.
+ Consideriamo uno spin 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ interagente con un ambiente 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ di 
+\begin_inset Formula $N$
+\end_inset
+
+ spins tramite l'hamiltoniano:
+\begin_inset Formula 
+\begin{equation}
+H=(\left|\uparrow\right\rangle \left\langle \uparrow\right|-\left|\downarrow\right\rangle \left\langle \downarrow\right|)\sum_{k=1}^{N}\frac{g_{k}}{2}(\left|\uparrow\right\rangle \left\langle \uparrow\right|_{k}-\left|\downarrow\right\rangle \left\langle \downarrow\right|_{k}).\label{eq:4.10 - Hamiltoniano spin (toy model)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nel seguito indicheremo con 
+\begin_inset Formula $\left|\right\rangle $
+\end_inset
+
+ e 
+\begin_inset Formula $\left|\right\rangle _{k}$
+\end_inset
+
+ i kets relativi al sistema e al 
+\begin_inset Formula $k$
+\end_inset
+
+-esimo spin dell'ambiente rispettivamente e ometteremo, per brevità, gli
+ operatori identità degli spin 
+\begin_inset Formula $k'\neq k$
+\end_inset
+
+ in espressioni come 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4.10 - Hamiltoniano spin (toy model)"
+
+\end_inset
+
+.
+ Inoltre fisseremo 
+\begin_inset Formula $\hbar=1$
+\end_inset
+
+, per cui le costanti di accoppiamento 
+\begin_inset Formula $g_{k}$
+\end_inset
+
+ avranno le dimensioni di una frequenza.
+\end_layout
+
+\begin_layout Standard
+Lo stato iniziale del sistema composto 
+\begin_inset Formula ${\cal SE}$
+\end_inset
+
+ è dato nella forma separabile:
+\begin_inset Formula 
+\begin{equation}
+\left|\Psi(0)\right\rangle =(a\left|\uparrow\right\rangle +b\left|\downarrow\right\rangle )\bigotimes_{k=1}^{N}(\alpha_{k}\left|\uparrow\right\rangle _{k}+\beta_{k}\left|\downarrow\right\rangle _{k}).\label{eq:4.11 - Stato iniziale spin-spins}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopo un tempo di interazione 
+\begin_inset Formula $t$
+\end_inset
+
+, lo stato evolve in:
+\begin_inset Formula 
+\begin{eqnarray}
+\left|\Psi(t)\right\rangle  & = & a\left|\uparrow\right\rangle \left|E_{\uparrow}(t)\right\rangle +b\left|\downarrow\right\rangle \left|E_{\downarrow}(t)\right\rangle \label{eq:4.12 - Stato finale spin-spins}
+\end{eqnarray}
+
+\end_inset
+
+dove:
+\begin_inset Formula 
+\begin{eqnarray}
+\left|E_{\uparrow}(t)\right\rangle  & = & \bigotimes_{k=1}^{N}(\alpha_{k}e^{-i\frac{g_{k}}{2}t}\left|\uparrow\right\rangle _{k}+\beta_{k}e^{i\frac{g_{k}}{2}t}\left|\downarrow\right\rangle _{k}),\label{eq:4.13 - Stati finali ambiente spins}\\
+\left|E_{\downarrow}(t)\right\rangle  & = & \bigotimes_{k=1}^{N}(\alpha_{k}e^{i\frac{g_{k}}{2}t}\left|\uparrow\right\rangle _{k}+\beta_{k}e^{-i\frac{g_{k}}{2}t}\left|\downarrow\right\rangle _{k})=\left|E_{\uparrow}(-t)\right\rangle .\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+La densità ridotta del sistema 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ è:
+\begin_inset Formula 
+\begin{equation}
+\rho_{{\cal S}}(t)=\left|a\right|^{2}\left|\uparrow\right\rangle \left\langle \uparrow\right|+\left|b\right|^{2}\left|\downarrow\right\rangle \left\langle \downarrow\right|+ab^{*}r(t)\left|\uparrow\right\rangle \left\langle \downarrow\right|+a^{*}br(t)\left|\downarrow\right\rangle \left\langle \uparrow\right|,\label{eq:4.14 - Densità ridotta spin}
+\end{equation}
+
+\end_inset
+
+dove 
+\begin_inset Formula $r(t)$
+\end_inset
+
+, il fattore di decoerenza, è:
+\begin_inset Formula 
+\begin{equation}
+r(t)=\left\langle E_{\downarrow}(t)|E_{\uparrow}(t)\right\rangle =\prod_{k=1}^{N}(\left|\alpha_{k}\right|^{2}e^{-ig_{k}t}+\left|\beta_{k}\right|^{2}e^{ig_{k}t})=\prod_{k=1}^{N}\left[\cos(g_{k}t)+i(\left|\beta_{k}\right|^{2}-\left|\alpha_{k}\right|^{2})\sin(g_{k}t)\right].\label{eq:4.15 - Fattore di decoerenza spin}
+\end{equation}
+
+\end_inset
+
+Dalla precedente espressione segue immediatamente:
+\begin_inset Formula 
+\begin{eqnarray}
+\overline{r} & = & 0,\nonumber \\
+\overline{\left|r\right|^{2}} & = & 2^{-N}\prod_{k=1}^{N}\left[1+(\left|\beta_{k}\right|^{2}-\left|\alpha_{k}\right|^{2})^{2}\right],\label{eq:4.16 - <r> e <r²>}
+\end{eqnarray}
+
+\end_inset
+
+dove 
+\begin_inset Formula $\overline{f}$
+\end_inset
+
+ denota la media temporale:
+\begin_inset Formula 
+\[
+\overline{f}=\lim_{T\to\infty}\dfrac{1}{T}\intop_{0}^{T}f(t)\,\text{d}t.
+\]
+
+\end_inset
+
+Vediamo dunque che (eccezion fatta per casi sporadici, come 
+\begin_inset Formula $\alpha_{1}=\alpha_{2}=\dots=1$
+\end_inset
+
+) le fluttuazioni del fattore di decoerenza attorno al valor medio 
+\begin_inset Formula $\overline{r}=0$
+\end_inset
+
+ sono dell'ordine di 
+\begin_inset Formula $2^{-N}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\overline{\left|r\right|^{2}}\sim2^{-N}.
+\]
+
+\end_inset
+
+Si può dimostrare 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Cucchietti Paz Zurek (2005) Gaussian decoherence"
+
+\end_inset
+
+ che per un'ampia classe
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+La condizione necessaria e sufficiente è che le varianze 
+\begin_inset Formula $\left\langle (g_{k}-\left\langle g_{k}\right\rangle )^{2}\right\rangle $
+\end_inset
+
+ esistano finite.
+ Inoltre le 
+\begin_inset Formula $\left\{ g_{k}\right\} $
+\end_inset
+
+ sono assunte indipendenti.
+\end_layout
+
+\end_inset
+
+ di distribuzioni delle costanti di accoppiamento 
+\begin_inset Formula $g_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $r(t)$
+\end_inset
+
+ è approssimativamente gaussiano:
+\begin_inset Formula 
+\begin{eqnarray}
+r(t) & \simeq & e^{i\overline{E}_{N}t}e^{-B_{N}^{2}t^{2}/2},\label{eq:4.17 - r = exp(...-t²)}
+\end{eqnarray}
+
+\end_inset
+
+dove:
+\begin_inset Formula 
+\begin{eqnarray}
+\overline{E_{N}} & = & \sum_{k=1}^{N}(\left|\beta_{k}\right|^{2}-\left|\alpha_{k}\right|^{2})g_{k},\label{eq:4.18 - Parametri gaussiana eq. 4.17}\\
+B_{N}^{2} & = & \sum_{k=1}^{N}4\left|\alpha_{k}\right|^{2}\left|\beta_{k}\right|^{2}g_{k}^{2}.\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+Il tempo di decoerenza è:
+\begin_inset Formula 
+\begin{equation}
+\tau_{\text{D}}=\dfrac{1}{B_{N}}=\dfrac{1}{\sqrt{\sum_{k=1}^{N}4\left|\alpha_{k}\right|^{2}\left|\beta_{k}\right|^{2}g_{k}^{2}}}.\label{eq:4.19 - Tempo di decoerenza spin}
+\end{equation}
+
+\end_inset
+
+In particolare, per 
+\begin_inset Formula $\left|\alpha_{k}\right|=\left|\beta_{k}\right|$
+\end_inset
+
+ e 
+\begin_inset Formula $g_{k}=g$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\tau_{\text{D}}=\dfrac{1}{\sqrt{N}}\dfrac{1}{g}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Può essere interessante un confronto con il tempo di ricorrenza 
+\begin_inset Formula $\tau_{\text{R}}$
+\end_inset
+
+ per questo caso altamente ordinato.
+ Come si vede dalla 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4.15 - Fattore di decoerenza spin"
+
+\end_inset
+
+, questo è:
+\begin_inset Formula 
+\[
+\tau_{\text{R}}=\dfrac{2\pi}{g},
+\]
+
+\end_inset
+
+per cui 
+\begin_inset Formula $\tau_{\text{D}}=\frac{1}{2\pi\sqrt{N}}\tau_{\text{R}}$
+\end_inset
+
+.
+ Anche in questo caso, il tempo di decoerenza è, per ambienti macroscopici
+ (i.e.
+ 
+\begin_inset Formula $N\sim10^{23}$
+\end_inset
+
+), svariati ordini di grandezza inferiore al tempo di ricorrenza.
+\end_layout
+
+\begin_layout Standard
+In figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:4.0 - Sfera-di-Bloch"
+
+\end_inset
+
+ è rappresentato il processo di decoerenza sulla sfera di Bloch.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Box Shaded
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename spin.png
+	lyxscale 5
+	scale 15
+
+\end_inset
+
+
+\shape italic
+\size huge
+
+\begin_inset Formula $\overset{t\gg\tau_{\text{D}}}{\longrightarrow}$
+\end_inset
+
+
+\shape default
+\size default
+
+\begin_inset Graphics
+	filename spin1.png
+	lyxscale 5
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:4.0 - Sfera-di-Bloch"
+
+\end_inset
+
+
+\shape italic
+Sfera di Bloch.
+
+\shape default
+ Il vettore di Bloch 
+\begin_inset Formula $\mathbf{b}=\left(r\sin\theta\cos\phi,r\sin\theta\sin\phi,r\cos\theta\right)$
+\end_inset
+
+ corrisponde all'operatore densità 
+\begin_inset Formula $\rho_{\mathbf{b}}=\frac{1+r}{2}\left|\theta,\phi\right\rangle \left\langle \theta,\phi\right|+\frac{1-r}{2}\left|\pi-\theta,\phi+\pi\right\rangle \left\langle \pi-\theta,\phi+\pi\right|$
+\end_inset
+
+, dove 
+\begin_inset Formula $\left|\theta,\phi\right\rangle =\cos\frac{\theta}{2}e^{-i\phi}\left|\uparrow\right\rangle +\sin\frac{\theta}{2}e^{i\phi}\left|\downarrow\right\rangle $
+\end_inset
+
+ è l'autoket con autovalore positivo dell'operatore di spin in direzione
+ 
+\begin_inset Formula $\theta,\phi$
+\end_inset
+
+.
+ In particolare, i punti sulla superficie rappresentano gli stati puri.
+ Se il sistema è nello stato corrispondente a 
+\begin_inset Formula $\mathbf{b}$
+\end_inset
+
+, la proiezione 
+\begin_inset Formula $\mathbf{b}\cdot\mathbf{n}$
+\end_inset
+
+ lungo un particolare asse 
+\begin_inset Formula $\mathbf{n}$
+\end_inset
+
+ fornisce la probabilità che una misura dell'osservabile 
+\begin_inset Formula $\mathbf{S}\cdot\mathbf{n}$
+\end_inset
+
+ dià l'autovalore positivo, secondo la formula 
+\begin_inset Formula $p=\frac{1+\mathbf{b}\cdot\mathbf{n}}{2}$
+\end_inset
+
+.
+ La decoerenza spinge 
+\begin_inset Formula $\mathbf{b}$
+\end_inset
+
+ verso l'asse preferenziale (corrispondente all'osservabile commutante con
+ l'hamiltoniano di interazione), mantenendo invariata la sua proiezione
+ lungo questo asse.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+E(nvironment)-in(duced) (super)selection
+\end_layout
+
+\begin_layout Standard
+In questa sezione introduciamo il concetto di 
+\shape italic
+einselection
+\shape default
+ (environment-induced superselection) ed esaminiamo alcune implicazioni
+ della decoerenza in merito ai modelli di misura e all'emergenza del mondo
+ classico dal substrato quantistico.
+\end_layout
+
+\begin_layout Subsection
+La selezione di un insieme di stati preferenziali
+\end_layout
+
+\begin_layout Standard
+La conseguenza principale dell'interazione con l'ambiente è la selezione
+ di un insieme preferenziale di stati, immuni al processo di decoerenza.
+ Questa selezione restringe drasticamente il numero di stati in cui il sistema
+ è in grado di persistere per più di un tempo di decoerenza: l'interazione
+ con l'ambiente impone delle 
+\shape italic
+regole effettive di superselezione
+\shape default
+ agli stati del sistema.
+\end_layout
+
+\begin_layout Standard
+La descrizione formale della decoerenza è data da un processo di Von Neumann,
+ come in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4.2 - Processo di decoerenza alla V.N."
+
+\end_inset
+
+.
+ Gli stati iniziali 
+\begin_inset Formula $\left\{ \left|s_{i}\right\rangle \right\} $
+\end_inset
+
+ del sistema sono detti 
+\shape italic
+stati preferenziali
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+In letteratura si incontrano spesso i termini “pointer-states/basis/observables”
+, che derivano dal contesto, la teoria quantistica della misura, nel quale
+ furono originiariamente introdotti questi concetti 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zurek (1981) Into what mixture"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\shape default
+ e sono selezionati dalla dinamica dell'interazione sistema-ambiente.
+\end_layout
+
+\begin_layout Standard
+Ci poniamo il problema della determinazione degli stati preferenziali.
+ Notiamo che la dinamica 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4.2 - Processo di decoerenza alla V.N."
+
+\end_inset
+
+ equivale a richiedere che l'operatore di evoluzione temporale:
+\begin_inset Formula 
+\[
+U^{t}=e^{-i\frac{H}{\hbar}t}
+\]
+
+\end_inset
+
+soddisfi un'equazione del tipo:
+\begin_inset Formula 
+\begin{equation}
+U^{t}\left|s_{i}\right\rangle \left|E_{0}\right\rangle =\left|s_{i}\right\rangle U_{i}^{t}\left|E_{0}\right\rangle \label{eq:5.1 - Processo di V.N. con evolutore temporale}
+\end{equation}
+
+\end_inset
+
+per ogni stato iniziale 
+\begin_inset Formula $\left|E_{0}\right\rangle $
+\end_inset
+
+ dell'ambiente.
+ 
+\end_layout
+
+\begin_layout Standard
+In generale, l'hamiltoniano del sistema composito 
+\begin_inset Formula ${\cal SE}$
+\end_inset
+
+ è dato da tre termini:
+\begin_inset Formula 
+\begin{equation}
+H=H_{{\cal S}}+H_{{\cal E}}+H_{{\cal SE}}.\label{eq:5.2 - H = Hs+He+Hse}
+\end{equation}
+
+\end_inset
+
+Le tecniche per la determinazione degli stati preferenziali 
+\begin_inset Formula $\left\{ \left|s_{i}\right\rangle \right\} $
+\end_inset
+
+ a partire dall'hamiltoniano generale 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5.2 - H = Hs+He+Hse"
+
+\end_inset
+
+, sono tuttora oggetto di studio nella teoria della decoerenza.
+ In particolare, Zurek ha sviluppato un insieme di metodi, noto come 
+\shape italic
+Predictabilty Sieve 
+\shape default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zurek (1993) Predictability Sieve"
+
+\end_inset
+
+, per classificare gli stati dello spazio di Hilbert in base alla loro propensio
+ne all'entanglement con i gradi di libertà dell'ambiente.
+ Esaminiamo qui brevemente solo un caso particolare, in cui l'insieme di
+ stati preferenziali emerge in modo piuttosto naturale.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+
+\size small
+\begin_inset Box Shaded
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Quantum-measurement limit.
+\end_layout
+
+\begin_layout Plain Layout
+Se nella 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5.2 - H = Hs+He+Hse"
+
+\end_inset
+
+ possiamo porre 
+\begin_inset Formula $H\approx H_{{\cal SE}}$
+\end_inset
+
+ (ovvero se le auto-energie del sistema e dell'ambiente si possono ritenere
+ trascurabili), il problema della determinazione degli stati preferenziali
+ si semplifica notevolmente.
+ Quest'approssimazione è nota come “quantum-measurement limit” 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "paragrafo 2.8.1"
+key "Schlosshauer Q2C"
+
+\end_inset
+
+, in quanto si assume che lo stabilirsi di correlazioni fra 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ ed 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ sia un processo molto più rapido delle rispettive evoluzioni libere, come
+ ci si aspetta, idealmente, dall'interazione fra sistema e apparato di misura.
+ In questo caso, l'equazione 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5.1 - Processo di V.N. con evolutore temporale"
+
+\end_inset
+
+ è identicamente soddisfatta se 
+\begin_inset Formula $\left\{ \left|s_{i}\right\rangle \right\} $
+\end_inset
+
+ sono autostati non degeneri di una qualunque osservabile 
+\begin_inset Formula $\hat{s}$
+\end_inset
+
+ del sistema 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ tale che 
+\begin_inset Formula $\left[\hat{s},H_{{\cal SE}}\right]=0$
+\end_inset
+
+.
+ Infatti, in tal caso, 
+\begin_inset Formula $\left\langle s_{j}|H_{{\cal SE}}|s_{i}\right\rangle =0$
+\end_inset
+
+ se 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+ per cui l'hamiltoniano di interazione assume la forma:
+\begin_inset Formula 
+\begin{eqnarray}
+H_{{\cal SE}} & = & \sum_{i}\left|s_{i}\right\rangle \left\langle s_{i}\right|\otimes H_{{\cal SE}}^{(i)}.\label{eq:5.3 - Hamiltoniano interazione quantum measurement limit}
+\end{eqnarray}
+
+\end_inset
+
+In questo caso:
+\begin_inset Formula 
+\begin{equation}
+U^{t}\left|s_{i}\right\rangle \left|E_{0}\right\rangle =\exp\left(-i\dfrac{H_{{\cal SE}}}{\hbar}t\right)\left|s_{i}\right\rangle \left|E_{0}\right\rangle =\left|s_{i}\right\rangle \exp\left(-i\dfrac{H_{{\cal SE}}^{(i)}}{\hbar}t\right)\left|E_{0}\right\rangle =\left|s_{i}\right\rangle \left|E_{i}\right\rangle .\label{eq:5.4 - Processo di V.N. in Q-m limit}
+\end{equation}
+
+\end_inset
+
+Un caso in cui l'identificazione dell'osservabile 
+\begin_inset Formula $\hat{s}$
+\end_inset
+
+ è immediata è quello in cui l'hamiltoniano di interazione assume la forma:
+\begin_inset Formula 
+\begin{equation}
+H_{{\cal SE}}=g\hat{s}\hat{B}.\label{eq:5.5 - H = gsB (Q-m limit)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Questo è il caso del modello di ambiente di spins discusso nel paragrafo
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:4.2 - Decoerenza di uno spin"
+
+\end_inset
+
+ (vedi equazione 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4.10 - Hamiltoniano spin (toy model)"
+
+\end_inset
+
+), ovvero dell'interazione fra spin e posizione di un elettrone in un apparato
+ di Stern-Gerlach.
+\end_layout
+
+\begin_layout Plain Layout
+Possiamo ottenere una lieve generalizzazione, se supponiamo che siano trascurabi
+li non le autoenergie, ma quelle parti delle autoenergie che non commutano
+ con l'energia di interazione: 
+\begin_inset Formula 
+\begin{equation}
+\left[H_{{\cal S}},H_{{\cal SE}}\right]\approx0,\qquad\left[H_{{\cal E}},H_{{\cal SE}}\right]\approx0.\label{eq:5.6 - [Hs,Hse]=0, [He,Hse]=0}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Box Shaded
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+In tal caso possiamo porre (cfr.
+ Zurek 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "equazioni 3.2a-b-c"
+key "Zurek (1982) Einselection rules"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+H_{{\cal S}}=\sum_{i}\delta_{i}\left|s_{i}\right\rangle \left\langle s_{i}\right|,\quad H_{{\cal E}}=\sum_{i}\epsilon_{j}\left|e_{j}\right\rangle \left\langle e_{j}\right|,\quad H_{{\cal SE}}=\sum_{ij}\gamma_{ij}\left|s_{i}\right\rangle \left\langle s_{i}\right|\left|e_{j}\right\rangle \left\langle e_{j}\right|.\label{eq:5.7 - Autoenergie diagonali insieme a HSE}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+L'evoluzione di uno stato separabile 
+\begin_inset Formula $\left|\Psi(0)\right\rangle =(\sum_{i}\alpha_{i}\left|s_{i}\right\rangle )\otimes(\sum_{j}\beta_{j}\left|e_{j}\right\rangle )$
+\end_inset
+
+ è data da (qui 
+\begin_inset Formula $\hbar=1$
+\end_inset
+
+):
+\begin_inset Formula 
+\begin{eqnarray}
+\left|\Psi(t)\right\rangle  & = & e^{-iHt}\left|\Psi(0)\right\rangle =\sum_{ij}\alpha_{i}\beta_{j}e^{-i(\delta_{i}+\epsilon_{j}+\gamma_{ij})t}\left|s_{i}\right\rangle \left|e_{j}\right\rangle .\label{eq:5.8 - Evoluzione stato iniziale quantum-measurement limit}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+L'operatore densità ridotta del sistema è:
+\begin_inset Formula 
+\begin{eqnarray}
+\rho_{S}(t) & = & \text{tr}_{{\cal E}}\left|\Psi(t)\right\rangle \left\langle \Psi(t)\right|=\sum_{ij}\alpha_{i}\alpha_{j}^{*}r_{ij}(t)\left|s_{i}\right\rangle \left\langle s_{j}\right|\label{eq:5.9 - matrice densità QMlimit}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+dove il fattore di decoerenza è:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+r_{ij}(t)=e^{-i(\delta_{i}-\delta_{j})t}\sum_{k}p_{k}e^{-i\omega_{k}^{ij}t},\qquad p_{k}=\left|\beta_{k}\right|^{2},\qquad\omega_{k}^{ij}=\gamma_{ik}-\gamma_{jk}.\label{eq:5.10 - fattore di decoerenza QMlimit}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Le equazioni precedenti sono ancora valide se l'ambiente si trova inizialmente
+ in uno stato misto, descritto da una matrice densità (nella base dell'energia)
+ 
+\begin_inset Formula $\rho_{hk}$
+\end_inset
+
+, nel qual caso 
+\begin_inset Formula $p_{k}=\rho_{kk}$
+\end_inset
+
+.
+ A parte un fattore di fase inessenziale, vediamo che il fattore di decoerenza
+ per elementi non diagonali è della forma:
+\begin_inset Formula 
+\begin{equation}
+f_{ij}(t)=\sum_{k}p_{k}e^{-i\omega_{k}^{ij}t}.\label{eq:5.11 - Random walk QMlimit}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Valor medio e fluttuazioni del fattore di decoerenza sono dati, rispettivamente,
+ da:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+\overline{r}=0,\qquad\overline{\left|r\right|^{2}}=\sum_{k}p_{k}^{2}.\label{eq:5.12 - medie fattore di decoerenza QMlimit}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+dove abbiamo assunto per semplicità che sia 
+\begin_inset Formula $\omega_{k}^{ij}\neq\omega_{h}^{ij}$
+\end_inset
+
+ per 
+\begin_inset Formula $k\neq h$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Se assumiamo una distribuzione uniforme fra 
+\begin_inset Formula $\nu$
+\end_inset
+
+ autostati dell'energia di 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+, allora le fluttazioni sono dell'ordine di:
+\begin_inset Formula 
+\begin{equation}
+\Delta=\sqrt{\overline{r^{2}}}\sim\dfrac{1}{\sqrt{\nu}}.\label{eq:5.13 - rms fattore di decoerenza QMlimit}
+\end{equation}
+
+\end_inset
+
+Il numero di stati con energie inferiore a una data 
+\begin_inset Formula $E$
+\end_inset
+
+ cresce, per sistemi macroscopici, esponenzialmente con il numero di gradi
+ di libertà del sistema: 
+\begin_inset Formula $\Omega(E)=\exp(N\phi(\frac{E}{N}))$
+\end_inset
+
+, dove 
+\begin_inset Formula $\phi(\frac{E}{N})\sim1$
+\end_inset
+
+ (
+\begin_inset Formula $S_{\text{H}}=Nk\phi(\frac{E}{N})$
+\end_inset
+
+ è l'entropia microcanonica di Helmoltz).
+ Inoltre, se 
+\begin_inset Formula $\nu(E)$
+\end_inset
+
+ è il numero di stati con energie in un piccolo intervallo 
+\begin_inset Formula $\left[E-\Delta,E\right]$
+\end_inset
+
+, l'errore relativo che si compie nel sostituire 
+\begin_inset Formula $\nu(E)$
+\end_inset
+
+ con 
+\begin_inset Formula $\Omega(E)$
+\end_inset
+
+ è trascurabile.
+ Di conseguenza, il numero che appare a denominatore della 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5.13 - rms fattore di decoerenza QMlimit"
+
+\end_inset
+
+ è tipicamente enorme (dell'ordine di 
+\begin_inset Formula $e^{N}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Plain Layout
+Notiamo che dalla 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5.11 - Random walk QMlimit"
+
+\end_inset
+
+ segue che, per tempi sufficientemente brevi (
+\begin_inset Formula $t\ll\tau_{\text{D}}$
+\end_inset
+
+), il fattore di decoerenza 
+\shape italic
+non
+\shape default
+ decade esponenzialmente.
+ Per vederlo, sviluppiamo al secondo ordine l'esponenziale nella 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5.11 - Random walk QMlimit"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray}
+f_{ij}(t) & \approx & \sum_{k}p_{k}(1-i\omega_{k}^{ij}t-\frac{1}{2}(\omega_{k}^{ij})^{2}t^{2})\nonumber \\
+ & = & 1-i\left\langle \omega^{ij}\right\rangle t-\frac{1}{2}\left\langle (\omega^{ij})^{2}\right\rangle t^{2},\label{eq:5.14 - Espansione in serie fij QMlimit}
+\end{eqnarray}
+
+\end_inset
+
+per cui:
+\begin_inset Formula 
+\begin{equation}
+\left|r_{ij}(t)\right|^{2}\approx1-(\left\langle (\omega^{ij})^{2}\right\rangle -\left\langle \omega^{ij}\right\rangle ^{2})t^{2},\label{eq:5.15 - |r²| per t<<1/w (decoerenza diretta)}
+\end{equation}
+
+\end_inset
+
+che chiaramente è incompatibile con una decrescita esponenziale del tipo
+ 
+\begin_inset Formula $e^{-\frac{t}{\tau_{\text{D}}}}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Un criterio di esistenza oggettiva
+\end_layout
+
+\begin_layout Standard
+Zurek 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "VI.A"
+key "Zurek (2003)"
+
+\end_inset
+
+ dà la seguente definizione operativa di 
+\shape italic
+esistenza oggettiva
+\shape default
+:
+\end_layout
+
+\begin_layout Quote
+
+\series bold
+Zurek: 
+\series default
+“Quando un osservatore può determinare, in maniera consistente, lo stato
+ di un sistema senza alterarlo, quello stato, secondo la nostra definizione
+ operativa, si dirà 
+\shape italic
+oggettivamente esistente
+\shape default
+.”
+\end_layout
+
+\begin_layout Standard
+In questa definizione si possono individuare due richieste.
+ La prima, è la richiesta di una determinazione 
+\shape italic
+consistente
+\shape default
+: se due sperimentatori ripetono la stessa misura entro tempi sufficientemente
+ brevi, i loro risultati devono concordare.
+ In altre parole, gli stati oggettivamente esistenti, sono stati 
+\shape italic
+stabili
+\shape default
+.
+ Chiaramente i “tempi sufficientemente brevi” devono essere alla portata
+ di un osservatore umano: l'immediata ripetibilità è di per sè già garantita
+ dagli assiomi della meccanica quantistica (v.
+ par.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Assiomi della meccanica quantistica"
+
+\end_inset
+
+).
+ Non vi è alcun problema nel fatto che questa definizione contenga un elemento
+ antropico: gli stati oggettivi che si tenta di descrivere sono un carattere
+ 
+\shape italic
+emergente 
+\shape default
+della teoria e, in quanto tale, necessariamente dipendente dalla natura
+ dell'osservatore.
+ 
+\end_layout
+
+\begin_layout Standard
+La seconda richiesta è che la determinazione non alteri lo stato del sistema.
+ È abbastanza chiaro che per rendere operativo questo criterio sono necessari
+ 
+\shape italic
+due
+\shape default
+ osservatori, i quali possano confrontare le proprie misure e stabilire
+ se l'intervento dell'altro abbia modificato o meno lo stato del sistema
+ (questo è esattamente il ruolo del “record-keeper” nel gioco descritto
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "VI.A"
+key "Zurek (2003)"
+
+\end_inset
+
+ per illustrare questo criterio).
+ 
+\end_layout
+
+\begin_layout Standard
+Effettivamente, la richiesta di consistenza è già di per sè sufficiente
+ ad individuare gli stati preferenziali come gli unici potenzialmente in
+ grado di soddisfare il criterio di esistenza oggettiva.
+ Per vedere che anche la seconda richiesta può essere soddisfatta, consideriamo
+ il seguente modello.
+ Il sistema 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ in uno stato generico 
+\begin_inset Formula $\left|s\right\rangle =\sum_{i}c_{i}\left|s_{i}\right\rangle $
+\end_inset
+
+ interagisce con l'ambiente 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ nello stato 
+\begin_inset Formula $\left|E_{0}\right\rangle $
+\end_inset
+
+ secondo lo schema classico di decoerenza: 
+\begin_inset Formula 
+\[
+\left|s\right\rangle \left|E_{0}\right\rangle =(\sum_{i}c_{i}\left|s_{i}\right\rangle )\left|E_{0}\right\rangle \to\sum_{i}c_{i}\left|s_{i}\right\rangle \left|E_{i}\right\rangle =\sum_{i}c_{i}\left|s_{i}\right\rangle \left|e_{i}'\right\rangle \left|e_{i}''\right\rangle \left|e_{i}'''\right\rangle \cdots.
+\]
+
+\end_inset
+
+Nell'ultima uguaglianza abbiamo scritto lo stato finale dell'ambiente come
+ prodotto di stati di diversi sottosistemi dell'ambiente, cosa che possiamo
+ supporre valida se il sistema ha avuto modo di interagire con diversi sottosist
+emi reciprocamente non interagenti.
+ Supponiamo ora che degli osservatori 
+\begin_inset Formula ${\cal O}',\ {\cal O}'',\ {\cal O}'''\dots$
+\end_inset
+
+ siano in grado di effettuare misure sui diversi sottosistemi 
+\begin_inset Formula $\left|e_{i}'\right\rangle $
+\end_inset
+
+, 
+\begin_inset Formula $\left|e_{i}''\right\rangle $
+\end_inset
+
+, 
+\begin_inset Formula $\left|e_{i}'''\right\rangle \dots$
+\end_inset
+
+.
+ Ciò permette loro di determinare in modo univoco lo stato del sistema,
+ senza dover interagire direttamente con quest'ultimo.
+ Queste determinazioni sono autoconsistenti, in quanto gli stati 
+\begin_inset Formula $\left|s_{i}\right\rangle $
+\end_inset
+
+ non sono soggetti a decoerenza, nonchè interconsistenti in quanto gli stati
+ 
+\begin_inset Formula $\left|e_{i}'\right\rangle $
+\end_inset
+
+ e 
+\begin_inset Formula $\left|e_{j}''\right\rangle $
+\end_inset
+
+, con 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+, non sono correlati (se 
+\begin_inset Formula ${\cal O}'$
+\end_inset
+
+ determina 
+\begin_inset Formula $\left|e_{i}'\right\rangle $
+\end_inset
+
+, allora 
+\begin_inset Formula ${\cal O}''$
+\end_inset
+
+ determina 
+\begin_inset Formula $\left|e_{i}''\right\rangle $
+\end_inset
+
+ con certezza).
+ Per concretezza, supponiamo che 
+\begin_inset Formula $\left|s_{i}\right\rangle $
+\end_inset
+
+ siano degli stati localizzati di una sferetta di metallo, ed 
+\begin_inset Formula $\left|e_{i}'\right\rangle $
+\end_inset
+
+ il ket di un fotone riflesso dalla superficie della sfera posta in 
+\begin_inset Formula $\left|s_{i}\right\rangle $
+\end_inset
+
+.
+ Una misura dello stato del fotone consiste nell'intercettazione del fotone
+ tramite un fotodiodo posto in un certo punto dello spazio.
+\end_layout
+
+\begin_layout Subsection
+Ruoli della decoerenza nell'emergenza del mondo classico
+\end_layout
+
+\begin_layout Standard
+In meccanica classica si può sempre, in linea di principio, soddisfare al
+ criterio di esistenza oggettiva di Zurek.
+ Gli stati della meccanica classica descrivono una realtà oggettiva, indipendent
+e dal nostro effettuare o meno misure sul sistema.
+ Da questo punto di vista (che motiva il criterio di Zurek), gli stati preferenz
+iali sono quelli che si avvicinano di più all'idealizzazione classica di
+ stato.
+\end_layout
+
+\begin_layout Standard
+Certamente, la richiesta di stabilità, come anche la possibilità di una
+ determinazione non distruttiva, sono entrambe richieste essenziali per
+ degli stati classici.
+ Tuttavia, vi è un motivo più fondamentale, e più semplice, per associare
+ gli stati non decoerenti agli stati classici: gli stati classici sono caratteri
+zzati dall'assenza di sovrapposizioni coerenti fra di essi.
+ Ad ogni istante si può legittimamente supporre che un sistema classico
+ si trovi in uno ed uno solo di questi stati, senza necessariamente sapere
+ in quale.
+ Se è data una densità di probabilità nello spazio delle fasi, non vi sono
+ mai termini d'interferenza nelle funzioni di probabilità delle osservabili
+ del sistema.
+ Tutte queste caratteristiche sono incorporate nell'operatore densità post-decoe
+renza 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4.6 - Densità postdecoerenza S"
+
+\end_inset
+
+, che mostra che un sistema soggetto a decoerenza è operativamente indistinguibi
+le da un sistema classico.
+\end_layout
+
+\begin_layout Standard
+Saremmo dunque tentati di identificare gli stati non decoerenti del sistema
+ con gli stati classici.
+ Alla questione di quali stati 
+\shape italic
+possano
+\shape default
+ essere considerati classici, la decoerenza fornisce una risposta precisa
+ in termini operativi: questi sono gli unici caratterizzati dall'assenza
+ di sovrapposizioni coerenti.
+ Lo studio dei modelli di decoerenza sembra indicare che questa risposta
+ si conforma bene alle nostre aspettative.
+ Tuttavia non siamo obbligati a concludere che, viceversa, tutti gli stati
+ non decoerenti corrispondano a stati classici, in quanto la decoerenza
+ non è in alcun modo in grado di garantire che ciascuno di questi stati
+ possa essere osservato in pratica.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Misura-con-decoerenza"
+
+\end_inset
+
+Misura con decoerenza - lo schema di Von Neumann rivisitato
+\end_layout
+
+\begin_layout Standard
+Nel paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec: c-not e base preferenziale"
+
+\end_inset
+
+ abbiamo argomentato che la sola interazione fra sistema e apparato non
+ è sufficiente a stabilire quale sia l'osservabile misurata dall'apparato.
+ La semplice creazione di correlazioni del tipo 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3.1 - Processo di Von Neumann"
+
+\end_inset
+
+ non pone alcun vincolo su quali siano gli stati in cui può essere trovato
+ l'apparato da un osservatore e, di conseguenza, neanche sull'osservabile
+ del sistema che viene misurata.
+\end_layout
+
+\begin_layout Standard
+La situazione ci appare in una luce diversa se includiamo, nella nostra
+ descrizione, l'interazione dell'apparato con l'ambiente.
+ Come si è già visto nell'ambito del modello semplicissimo del paragrafo
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec: c-not e base preferenziale"
+
+\end_inset
+
+, l'inclusione di un terzo sistema 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ alla catena 
+\begin_inset Formula ${\cal SA}$
+\end_inset
+
+ è in grado di rimuovere l'ambiguità nella base preferenziale dell'apparato.
+ 
+\end_layout
+
+\begin_layout Standard
+Innanzitutto, facciamo un elenco delle caratteristiche che possiamo ascrivere
+ ad un buon apparato di misura.
+ Al termine di una misura, lo sperimentatore può sempre assumere che il
+ sistema si trovi in un autostato dell'osservabile misurata: ciò significa
+ che le diverse alternative non interferiscono dopo la misura.
+ Ad ogni autostato del sistema, è associato uno stato “puntatore” dell'apparato.
+ Poichè gli stati puntatore sono correlati biunivocamente agli stati dell'osserv
+abile misurata, essi devono soddisfare le stesse richieste, ovvero, l'apparato
+ deve trovarsi, al termine della misura, in una sovrapposizione incoerente
+ di stati.
+ Inoltre, se lo sperimentatore osserva il puntatore in una certa posizione,
+ egli può essere certo che, per tempi ragionevolmente lunghi, continuerà
+ a osservare il puntatore nella stessa posizione.
+ Ciò individua univocamente gli stati puntatore come gli stati classici
+ dell'apparato.
+ D'altra parte, gli stati puntatore devono soddisfare un ulteriore criterio:
+ essi devono mantenere correlazioni stabili con gli autostati dell'osservabile
+ misurata.
+ È evidente che, affinchè l'apparato possa funzionare, gli stati puntatore
+ devono soddisfare 
+\shape italic
+entrambi
+\shape default
+ questi criteri.
+ 
+\end_layout
+
+\begin_layout Standard
+Dunque, in questo modello, l'apparato svolge l'importante ruolo di 
+\shape italic
+distruggere le relazioni di fase fra i diversi autostati dell'osservabile
+ misurata
+\shape default
+.
+ Schematizziamo nuovamente il processo di misura includendo, questa volta,
+ anche l'interazione con l'ambiente.
+ Indichiamo con 
+\begin_inset Formula ${\cal S}$
+\end_inset
+
+ il sistema, 
+\begin_inset Formula ${\cal A}$
+\end_inset
+
+ l'apparato ed 
+\begin_inset Formula ${\cal E}$
+\end_inset
+
+ l'ambiente.
+ Come prima, l'evoluzione di 
+\begin_inset Formula ${\cal SA}$
+\end_inset
+
+ è data da un processo di Von Neumann; in questa fase, l'ambiente interagisce
+ debolmente con l'apparato e il sistema.
+ Abbiamo:
+\begin_inset Formula 
+\begin{equation}
+(\sum_{i}c_{i}\left|s_{i}\right\rangle )\left|a_{0}\right\rangle \left|e_{0}\right\rangle \to(\sum_{i}c_{i}\left|s_{i}\right\rangle \left|a_{i}\right\rangle )\left|e_{0}\right\rangle .\label{eq:5.16 - Processo di Von Neumann SAE, fase 1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Stabilite le correlazioni 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5.16 - Processo di Von Neumann SAE, fase 1"
+
+\end_inset
+
+, il sistema cessa di interagire con l'apparato e quest'ultimo interagisce
+ con l'ambiente.
+ Dopo un tempo di decoerenza:
+\begin_inset Formula 
+\begin{equation}
+(\sum_{i}c_{i}\left|s_{i}\right\rangle \left|a_{i}\right\rangle )\left|e_{0}\right\rangle \to\sum_{i}c_{i}\left|s_{i}\right\rangle \left|a_{i}\right\rangle \left|e_{i}\right\rangle .\label{eq:5.17 - Processo di Von Neumann SAE, fase 2}
+\end{equation}
+
+\end_inset
+
+Lo stato finale della coppia 
+\begin_inset Formula ${\cal SA}$
+\end_inset
+
+ è una sovrapposizione incoerente:
+\begin_inset Formula 
+\begin{equation}
+\rho_{{\cal SA}}=\sum_{i}\left|c_{i}\right|^{2}\left|s_{i}\right\rangle \left\langle s_{i}\right|\left|a_{i}\right\rangle \left\langle a_{i}\right|.\label{eq:5.18 - Stato finale SA (misura con decoerenza)}
+\end{equation}
+
+\end_inset
+
+L'operatore densità dello stato finale 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5.18 - Stato finale SA (misura con decoerenza)"
+
+\end_inset
+
+ è formalmente identico a quello di una miscela propria di stati, ovvero
+ di una situazione in cui il complesso 
+\begin_inset Formula ${\cal SA}$
+\end_inset
+
+ si trova con certezza in uno degli stati 
+\begin_inset Formula $\left|s_{i}\right\rangle \left|a_{i}\right\rangle $
+\end_inset
+
+ con probabilità 
+\begin_inset Formula $\left|c_{i}\right|^{2}$
+\end_inset
+
+.
+ A questo stadio, e non prima, lo sperimentatore può assumere, senza incorrere
+ in contraddizioni, che il sistema 
+\begin_inset Formula ${\cal S{\cal A}}$
+\end_inset
+
+ si trovi in uno degli stati 
+\begin_inset Formula $\left|s_{i}\right\rangle \left|a_{i}\right\rangle $
+\end_inset
+
+ con probabilità 
+\begin_inset Formula $p_{i}=\left|c_{i}\right|^{2}$
+\end_inset
+
+ e dichiarare conclusa la misura.
+\end_layout
+
+\begin_layout Standard
+Notiamo che, sebbene l'operatore densità 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5.18 - Stato finale SA (misura con decoerenza)"
+
+\end_inset
+
+ possa, in linea di principio, ammettere diverse scritture diagonali, l'unica
+ rappresentazione in cui gli stati del sistema e dell'apparato sono biunivocamen
+te correlati è quella dell'equazione 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5.18 - Stato finale SA (misura con decoerenza)"
+
+\end_inset
+
+.
+ Di fatti, se 
+\begin_inset Formula $\left|\alpha\right\rangle $
+\end_inset
+
+ è uno stato arbitrario dell'apparato, come si è visto al termine del paragrafo
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:2.0Aggiornamento-dell'operatore-densità"
+
+\end_inset
+
+, la probabilità condizionata allo stato 
+\begin_inset Formula $\left|\alpha\right\rangle $
+\end_inset
+
+ è
+\begin_inset Formula 
+\begin{eqnarray}
+\rho_{{\cal S}{\cal \left|\alpha\right\rangle }} & = & \sum_{i}w_{i}\left|s_{i}\right\rangle \left\langle s_{i}\right|\nonumber \\
+w_{i} & = & \frac{p_{i}\left|\left\langle \alpha|a_{i}\right\rangle \right|^{2}}{\sum_{j}p_{j}\left|\left\langle \alpha|a_{j}\right\rangle \right|^{2}}.\label{eq:5.19 - Prob-condizionata a stato dell'apparato}
+\end{eqnarray}
+
+\end_inset
+
+Questa rappresenta uno stato puro se e soltanto se 
+\begin_inset Formula $w_{i}=1$
+\end_inset
+
+ per qualche 
+\begin_inset Formula $i$
+\end_inset
+
+, che è in generale vero se e soltanto se 
+\begin_inset Formula $\left|\alpha\right\rangle =\left|a_{i}\right\rangle $
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Evidentemente si possono avere delle correlazioni “accidentali”.
+ Supponiamo ad esempio di avere 
+\begin_inset Formula $p_{1}=p_{2}=\frac{1}{2}$
+\end_inset
+
+, 
+\begin_inset Formula $p_{3}=p_{4}=\dots=0$
+\end_inset
+
+.
+ Se 
+\begin_inset Formula $\left|\alpha\right\rangle =\frac{\left|a_{1}\right\rangle +\left|a_{3}\right\rangle }{\sqrt{2}}$
+\end_inset
+
+, allora 
+\begin_inset Formula $\text{Pr}\left(s_{1}|\alpha\right)=1$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+ La probabilità condizionata di uno stato 
+\begin_inset Formula $\left|\sigma\right\rangle $
+\end_inset
+
+ del sistema, è in generale 
+\begin_inset Formula $\text{Pr}\left(\sigma|\alpha\right)=1$
+\end_inset
+
+ se e solo se 
+\begin_inset Formula $\left|\sigma\right\rangle =\left|s_{i}\right\rangle $
+\end_inset
+
+ e 
+\begin_inset Formula $\left|\alpha\right\rangle =\left|a_{i}\right\rangle $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Gli stati puntatore 
+\begin_inset Formula $\left\{ \left|a_{i}\right\rangle \right\} $
+\end_inset
+
+ che appaiono nello stato finale 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5.18 - Stato finale SA (misura con decoerenza)"
+
+\end_inset
+
+ sono pertanto gli stati non decoerenti dell'interazione apparato-ambiente.
+ Ciò fornisce il criterio oggettivo per stabilire quale sia l'osservabile
+ del sistema misurata dall'apparato e risolve il problema della base preferenzia
+le.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Box Shaded
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+Il collasso apparente del vettore di stato.
+
+\series default
+ Si potrebbe essere tentati di concludere, erroneamente, che ciò costituisca
+ una dimostrazione della regola di Born e del postulato del collasso.
+ Del resto l'operatore densità 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5.18 - Stato finale SA (misura con decoerenza)"
+
+\end_inset
+
+ è identico a quello di una miscela propria, per cui le due situazioni sono
+ sperimentalmente indistinguibili (tramite misure locali sul complesso sistema-a
+pparato).
+ Tuttavia, è fondamentale comprendere che, nell'interpretazione dell'operatore
+ densità, la regola di Born è assunta 
+\shape italic
+a priori
+\shape default
+.
+ Di conseguenza, la conclusione che la regola di Born segua dalla 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5.18 - Stato finale SA (misura con decoerenza)"
+
+\end_inset
+
+ è circolare.
+ La conclusione corretta è che, dopo un tempo di decoerenza, lo sperimentatore
+ può 
+\shape italic
+assumere
+\shape default
+ che il collasso in uno degli stati 
+\begin_inset Formula $\left|s_{i}\right\rangle \left|a_{i}\right\rangle $
+\end_inset
+
+ sia già avvenuto.
+ Ciò non può dar luogo a contraddizioni, poichè le diverse alternative non
+ interferiscono dopo un tempo di decoerenza.
+ Per questo motivo, ci si riferisce allo stato finale 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5.18 - Stato finale SA (misura con decoerenza)"
+
+\end_inset
+
+ come a un 
+\shape italic
+collasso apparente 
+\shape default
+del vettore di stato.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:6 - Decoerenza collisionale e localizzazione"
+
+\end_inset
+
+Decoerenza collisionale e localizzazione
+\end_layout
+
+\begin_layout Standard
+In questa sezione consideriamo un tipo di decoerenza particolarmente rilevante,
+ la decoerenza collisionale.
+\end_layout
+
+\begin_layout Standard
+La decoerenza collisionale è dovuta agli urti di un sistema macroscopico
+ con le particelle ambientali.
+ La conseguenza della decoerenza collisionale è la localizzazione, ovvero
+ l'emergenza di stati localizzati come stati preferenziali selezionati dall'inte
+razione con l'ambiente.
+ 
+\end_layout
+
+\begin_layout Standard
+Discuteremo la decoerenza collisionale nell'ambito di un modello (paragrafo
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:6.1 - Un modello di decoerenza collisionale"
+
+\end_inset
+
+), dovuto a E.
+ Joos e H.
+ D.
+ Zeh 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Joos e Zeh (1985) Collisional decoherence"
+
+\end_inset
+
+ e analizzato in modo rigoroso da K.
+ Hornberger e J.
+ E.
+ Sipe 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Hornberger (2003) Collisional decoherence"
+
+\end_inset
+
+.
+ L'analisi del modello porta a stabilire la master equation per l'operatore
+ densità (paragrafo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:La master equation"
+
+\end_inset
+
+).
+ Lo studio della master equation permette di effettuare stime numeriche
+ sui tempi di localizzazione dovuti alla diffusione di particelle ambientali
+ in condizioni di laboratorio tipiche.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:6.1 - Un modello di decoerenza collisionale"
+
+\end_inset
+
+Un modello di decoerenza collisionale
+\end_layout
+
+\begin_layout Standard
+Il modello che consideriamo consiste di una particella di massa 
+\begin_inset Formula $M$
+\end_inset
+
+ immersa in un gas di 
+\begin_inset Formula $N$
+\end_inset
+
+ particelle di massa 
+\begin_inset Formula $m\ll M$
+\end_inset
+
+, in equilibrio termico a temperatura 
+\begin_inset Formula $T$
+\end_inset
+
+ in un volume 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ La particella massiva interagisce con le particelle del gas tramite un
+ potenziale 
+\begin_inset Formula $U(\mathbf{R}-\mathbf{r})$
+\end_inset
+
+ a corto raggio, il quale dipende dalle sole posizioni relative dei centri
+ di massa delle due particelle.
+ Di conseguenza è sufficiente considerare questi gradi di libertà
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Non si tiene conto di spin, orientazione delle molecole, eccitazioni interne
+ ecc.
+\end_layout
+
+\end_inset
+
+.
+ Lo stato iniziale del sistema particella-gas è dato da:
+\begin_inset Formula 
+\begin{equation}
+\rho(0)=\rho_{M}(0)\otimes\rho_{{\cal E}}\label{eq:6.1 - Stato iniziale particella+gas}
+\end{equation}
+
+\end_inset
+
+dove 
+\begin_inset Formula $\rho_{{\cal E}}$
+\end_inset
+
+ è la densità canonica del gas.
+ Inoltre si suppone il gas sufficientemente diluito, in modo da poter trascurare
+ le interazioni fra le particelle leggere e gli effetti dovuti all'indistinguibi
+lità.
+ Sotto queste ipotesi, la densità canonica è esprimibile come prodotto di
+ densità di particella singola:
+\begin_inset Formula 
+\begin{equation}
+\rho_{{\cal E}}=\rho_{1}\otimes\rho_{2}\otimes\cdots\otimes\rho_{N},\label{eq:6.2 - Densità canonica del gas è fattorizzabile}
+\end{equation}
+
+\end_inset
+
+dove:
+\begin_inset Formula 
+\begin{equation}
+\rho_{i}\propto\exp\left[-\dfrac{\beta\hat{\mathbf{p}}_{i}^{2}}{2m}\right].\label{eq:6.3 - Densità canonica di singola particella.}
+\end{equation}
+
+\end_inset
+
+L'analisi presentata da Hornberger e Sipe 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "II"
+key "Hornberger (2003) Collisional decoherence"
+
+\end_inset
+
+ si articola essenzialmente in quattro passaggi:
+\end_layout
+
+\begin_layout Enumerate
+Studio della decoerenza in seguito ad un singolo urto con una particella
+ leggera localizzata.
+\end_layout
+
+\begin_layout Enumerate
+Calcolo esplicito del fattore di decoerenza per un urto con uno stato gaussiano
+ di minima indeterminazione.
+\end_layout
+
+\begin_layout Enumerate
+Decomposizione della densità canonica in una combinazione convessa di stati
+ gaussiani.
+\end_layout
+
+\begin_layout Enumerate
+Calcolo della variazione dell'elemento di matrice in un intervallo di tempo
+ discreto.
+\end_layout
+
+\begin_layout Standard
+Rimandiamo il lettore interessato all'analisi all'articolo di Hornberger
+ e Sipe.
+ Ci limitiamo qui a enunciare il risultato fondamentale 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.4 - Master equation (localizzazione)"
+
+\end_inset
+
+, ovvero la master-equation dell'operatore densità.
+ 
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:La master equation"
+
+\end_inset
+
+Studio della master equation
+\end_layout
+
+\begin_layout Standard
+Sotto le ipotesi sopra discusse, si trova che l'elemento di matrice 
+\begin_inset Formula $\left\langle \mathbf{R}_{1}|\rho_{M}(t)|\mathbf{R}_{2}\right\rangle =\rho_{M}(\mathbf{R}_{1},\mathbf{R}_{2},t)$
+\end_inset
+
+ soddisfa, per tempi brevi rispetto all'evoluzione libera (data dall'hamiltonian
+o 
+\begin_inset Formula $H^{0}$
+\end_inset
+
+ in assenza dell'interazione con l'ambiente), l'equazione differenziale:
+\begin_inset Formula 
+\begin{eqnarray}
+\dfrac{\partial\rho_{M}}{\partial t}(\mathbf{R}_{1},\mathbf{R}_{2},t) & = & -F(\mathbf{R}_{1}-\mathbf{R}_{2})\rho_{M}(\mathbf{R}_{1},\mathbf{R}_{2},t),\label{eq:6.4 - Master equation (localizzazione)}\\
+F(\mathbf{R}) & = & \intop_{0}^{\infty}\frac{n}{m}\nu(q)q\text{d}q\intop\dfrac{\text{d}\mathbf{n}_{1}\text{d}\mathbf{n}_{2}}{4\pi}(1-e^{iq(\mathbf{n}_{1}-\mathbf{n}_{2})\cdot\mathbf{R}/\hbar})\left|f(q\mathbf{n}_{2}\leftarrow q\mathbf{n}_{1})\right|^{2},\label{eq:6.5 - Tasso di decoerenza (localizzazione)}\\
+\nu(q) & = & 4\pi q^{2}\left(\dfrac{\beta}{2\pi m}\right)^{\frac{3}{2}}e^{-\frac{\beta^{2}q^{2}}{2m}}.\label{eq:6.6 - Distribuzione impulsi (localizzazione)}
+\end{eqnarray}
+
+\end_inset
+
+Nell'espressione precedente 
+\begin_inset Formula $n=\frac{N}{V}$
+\end_inset
+
+ è la densità numerica del gas, 
+\begin_inset Formula $\text{d}\mathbf{n}$
+\end_inset
+
+ un elemento di angolo solido in direzione 
+\begin_inset Formula $\mathbf{n}$
+\end_inset
+
+ e 
+\begin_inset Formula $\nu(q)$
+\end_inset
+
+ la distribuzione del modulo dell'impulso di una particella del gas.
+ Inoltre 
+\begin_inset Formula $f(q\mathbf{n}_{2}\leftarrow q\mathbf{n}_{1})$
+\end_inset
+
+ è l'ampiezza di diffusione del processo 
+\begin_inset Formula $q\mathbf{n}_{1}\to q\mathbf{n}_{2}$
+\end_inset
+
+ secondo il potenziale (di particella singola) 
+\begin_inset Formula $U(\mathbf{r})$
+\end_inset
+
+, legata alla sezione d'urto differenziale tramite
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fn:6.0 - Sezione d'urto e invarianza rotazionale"
+
+\end_inset
+
+Assumiamo qui che il potenziale di interazione 
+\begin_inset Formula $U$
+\end_inset
+
+ sia sfericamente simmetrico, di modo che l'ampiezza di diffusione (e quindi
+ la sezione d'urto differenziale) dipenda unicamente dal modulo dell'impulso
+ e dall'angolo di diffusione.
+\end_layout
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\left|f(q\mathbf{n}_{2}\leftarrow q\mathbf{n}_{1})\right|^{2}=\frac{\text{d}\sigma}{\text{d}\Omega}(q,\widehat{\mathbf{n}_{1}\mathbf{n}_{2}}).\label{eq:6.7 - Ampiezza diffusione e sezione d'urto}
+\end{equation}
+
+\end_inset
+
+Ne segue che, per tempi sufficientemente brevi, 
+\begin_inset Formula $\rho_{M}(\mathbf{R}_{1},\mathbf{R}_{2},t)$
+\end_inset
+
+ ha un andamento esponenziale:
+\begin_inset Formula 
+\begin{equation}
+\rho_{M}(\mathbf{R}_{1},\mathbf{R}_{2},t)=\exp\left[-F(\mathbf{R}_{1}-\mathbf{R}_{2})t\right]\rho_{M}(\mathbf{R}_{1},\mathbf{R}_{2},0),\label{eq:6.8 - Soluzione master equation (localizzazione)}
+\end{equation}
+
+\end_inset
+
+per cui 
+\begin_inset Formula $F(\mathbf{R}_{1}-\mathbf{R}_{2})$
+\end_inset
+
+ definisce un 
+\shape italic
+tasso di decoerenza
+\shape default
+, e il tempo di decoerenza è 
+\begin_inset Formula 
+\begin{equation}
+\tau_{D}(\mathbf{R}_{1},\mathbf{R}_{2})=\frac{1}{F(\mathbf{R}_{1}-\mathbf{R}_{2})}.\label{eq:6.9 - Tempo di decoerenza collisionale}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il tasso di decoerenza è reale: per dimostrarlo, notiamo innanzitutto che
+ se 
+\begin_inset Formula $g(\mathbf{n})$
+\end_inset
+
+ è una funzione definita sulla sfera unitaria allora 
+\begin_inset Formula $\intop\text{d}\mathbf{n}g(\mathbf{n})=\intop\text{d}\mathbf{n}g(-\mathbf{n})$
+\end_inset
+
+, come si dimostra facilmente utilizzando coordinate polari.
+ Scrivendo l'esponenziale nell'integrale 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.5 - Tasso di decoerenza (localizzazione)"
+
+\end_inset
+
+ nella forma 
+\begin_inset Formula 
+\[
+e^{iq(\mathbf{n}_{1}-\mathbf{n}_{2})\cdot\mathbf{R}/\hbar}=\cos q\dfrac{(\mathbf{n}_{1}-\mathbf{n}_{2})\cdot\mathbf{R}}{\hbar}+i\sin q\dfrac{(\mathbf{n}_{1}-\mathbf{n}_{2})\cdot\mathbf{R}}{\hbar},
+\]
+
+\end_inset
+
+notiamo che il termine 
+\begin_inset Formula $\sin(\cdot)$
+\end_inset
+
+ è dispari rispetto alle operazioni 
+\begin_inset Formula $\mathbf{n}_{1}\to-\mathbf{n}_{1}$
+\end_inset
+
+ , 
+\begin_inset Formula $\mathbf{n}_{2}\to-\mathbf{n}_{2}$
+\end_inset
+
+.
+ Inoltre l'ampiezza di diffusione è pari rispetto a questa operazione, poichè
+ il potenziale sfericamente simmetrico che consideriamo è invariante per
+ parità.
+ Di conseguenza, la parte immaginaria dell'integrale 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.5 - Tasso di decoerenza (localizzazione)"
+
+\end_inset
+
+ è nulla.
+\end_layout
+
+\begin_layout Standard
+Consideriamo i due casi particolari in cui la distanza 
+\begin_inset Formula $\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|$
+\end_inset
+
+ sia molto maggiore (minore) della lunghezza d'onda termica 
+\begin_inset Formula $\lambda=\dfrac{h}{\sqrt{2\pi mkT}}$
+\end_inset
+
+, corrispondente all'impulso termico 
+\begin_inset Formula $p=\frac{h}{\lambda}=\sqrt{2\pi mkT}$
+\end_inset
+
+.
+ Nel primo caso, 
+\begin_inset Formula $\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\gg\lambda$
+\end_inset
+
+, il fattore 
+\begin_inset Formula $e^{iq(\mathbf{n}_{1}-\mathbf{n}_{2})\cdot\mathbf{R}/\hbar}$
+\end_inset
+
+ nell'integrale 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.5 - Tasso di decoerenza (localizzazione)"
+
+\end_inset
+
+ oscilla rapidamente per tutti i valori di 
+\begin_inset Formula $q$
+\end_inset
+
+ per cui la distribuzione degli impulsi 
+\begin_inset Formula $\nu(q)$
+\end_inset
+
+ è sensibilmente diversa da zero, per cui si può porre l'integrale derivante
+ da questo singolo termine uguale a zero.
+ Di conseguenza:
+\begin_inset Formula 
+\begin{eqnarray*}
+F(\mathbf{R}_{1}-\mathbf{R}_{2}) & \overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\gg\lambda}{=} & \intop_{0}^{\infty}\frac{n}{m}\nu(q)q\text{d}q\intop\dfrac{\text{d}\mathbf{n}_{1}\text{d}\mathbf{n}_{2}}{4\pi}\dfrac{\text{d}\sigma}{\text{d}\Omega}(q,\widehat{\mathbf{n}_{1}\mathbf{n}_{2}}),
+\end{eqnarray*}
+
+\end_inset
+
+dove abbiamo usato la 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.7 - Ampiezza diffusione e sezione d'urto"
+
+\end_inset
+
+.
+ Svolgendo l'integrale in 
+\begin_inset Formula $\text{d}\mathbf{n}_{2}$
+\end_inset
+
+ troviamo:
+\begin_inset Formula 
+\begin{eqnarray}
+F(\mathbf{R}_{1}-\mathbf{R}_{2}) & \overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\gg\lambda}{=} & \intop_{0}^{\infty}\frac{n}{m}\nu(q)q\text{d}q\intop\dfrac{\text{d}\mathbf{n}_{1}}{4\pi}\sigma(q)\nonumber \\
+ & = & \intop_{0}^{\infty}\dfrac{nq}{m}\sigma(q)\nu(q)\text{d}q,\label{eq:6.10 - F(R1-R2)=... onde corte}
+\end{eqnarray}
+
+\end_inset
+
+dove abbiamo usato il fatto che la sezione d'urto differenziale non dipende
+ dalla direzione iniziale ma soltanto dall'angolo 
+\begin_inset Formula $\widehat{\mathbf{n}_{1}\mathbf{n}_{2}}$
+\end_inset
+
+ (vedi Nota 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fn:6.0 - Sezione d'urto e invarianza rotazionale"
+
+\end_inset
+
+), per cui la sezione d'urto totale dipende solo dal modulo 
+\begin_inset Formula $q$
+\end_inset
+
+.
+ Infine, riconoscendo che 
+\begin_inset Formula $\frac{n\nu(q)q}{m}\text{d}q$
+\end_inset
+
+ è il modulo della densità di flusso delle particelle con impulsi fra 
+\begin_inset Formula $q$
+\end_inset
+
+ e 
+\begin_inset Formula $q+\text{d}q$
+\end_inset
+
+, vediamo che 
+\begin_inset Formula $\dfrac{n\nu(q)q}{m}\sigma(q)\text{d}q=\text{d}\Gamma(q)$
+\end_inset
+
+ è il tasso di diffusione di queste particelle e l'ultimo integrale in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.10 - F(R1-R2)=... onde corte"
+
+\end_inset
+
+ è semplicemente:
+\begin_inset Formula 
+\begin{equation}
+F(\mathbf{R}_{1}-\mathbf{R}_{2})=\Gamma,\label{eq:6.11 - F(R1-R2) = Gamma, onde corte}
+\end{equation}
+
+\end_inset
+
+il tasso di diffusione totale (ovvero il numero di urti per unità di tempo
+ della particella pesante).
+ La 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.11 - F(R1-R2) = Gamma, onde corte"
+
+\end_inset
+
+ ha un significato fisico evidente: nel limite di onde corte, 
+\begin_inset Formula $\lambda\ll\left|\mathbf{R}_{2}-\mathbf{R}_{1}\right|$
+\end_inset
+
+, un singolo urto è sufficiente a risolvere la posizione della particella
+ massiva, per cui il tempo di decoerenza è semplicemente il tempo tipico
+ di collisione.
+\end_layout
+
+\begin_layout Standard
+Consideriamo invece il limite di onde lunghe, ossia 
+\begin_inset Formula $\lambda\gg\left|\mathbf{R}_{2}-\mathbf{R}_{1}\right|$
+\end_inset
+
+.
+ In questo caso, l'esponenziale nell'integrale 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.5 - Tasso di decoerenza (localizzazione)"
+
+\end_inset
+
+ si può sviluppare in serie di potenze:
+\begin_inset Formula 
+\begin{equation}
+1-e^{iq(\mathbf{n}_{1}-\mathbf{n}_{2})\cdot(\mathbf{R}_{1}-\mathbf{R}_{2})/\hbar}=-i\dfrac{q(\mathbf{n}_{1}-\mathbf{n}_{2})\cdot(\mathbf{R}_{1}-\mathbf{R}_{2})}{\hbar}+\dfrac{q^{2}}{2\hbar^{2}}\left[(\mathbf{n}_{1}-\mathbf{n}_{2})\cdot(\mathbf{R}_{1}-\mathbf{R}_{2})\right]^{2}+\dots\label{eq:6.12 - Sviluppo in serie esponenziale, onde lunghe}
+\end{equation}
+
+\end_inset
+
+L'integrale derivante dal primo termine dello sviluppo è identicamente nullo.
+ Quanto al secondo termine, notiamo che poichè la sezione d'urto differenziale
+ è invariante per rotazioni, il tasso di diffusione non dipende dall'orientazion
+e di 
+\begin_inset Formula $\mathbf{R}_{1}-\mathbf{R}_{2}$
+\end_inset
+
+, ma soltanto dal modulo 
+\begin_inset Formula $\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|$
+\end_inset
+
+.
+ Di conseguenza, possiamo sostituire il termine 
+\begin_inset Formula $\left[(\mathbf{n}_{1}-\mathbf{n}_{2})\cdot(\mathbf{R}_{1}-\mathbf{R}_{2})\right]^{2}$
+\end_inset
+
+ con una media rispetto alle possibili direzioni di 
+\begin_inset Formula $\mathbf{R}_{1}-\mathbf{R}_{2}$
+\end_inset
+
+.
+ Questa media è data da:
+\begin_inset Formula 
+\begin{equation}
+\overline{\left[(\mathbf{n}_{1}-\mathbf{n}_{2})\cdot(\mathbf{R}_{1}-\mathbf{R}_{2})\right]^{2}}=\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|^{2}\left|\mathbf{n}_{1}-\mathbf{n}_{2}\right|^{2}\intop\dfrac{\text{d}\mathbf{\hat{R}}_{12}}{4\pi}(\mathbf{\hat{n}}_{12}\cdot\hat{\mathbf{R}}_{12})^{2}=\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|^{2}\dfrac{2}{3}(1-\cos(\widehat{\mathbf{n}_{1}\mathbf{n}_{2}})).\label{eq:6.13 - Media di [(n1-n2)·(R1-R2)]²}
+\end{equation}
+
+\end_inset
+
+Sostituendo nell'integrale 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.5 - Tasso di decoerenza (localizzazione)"
+
+\end_inset
+
+, troviamo:
+\begin_inset Formula 
+\begin{eqnarray*}
+F(\mathbf{R}_{1}-\mathbf{R}_{2}) & \overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\ll\lambda}{=} & \left|\mathbf{R}_{2}-\mathbf{R}_{1}\right|^{2}\intop_{0}^{\infty}\frac{nq}{m}\nu(q)\dfrac{q^{2}}{\hbar^{2}}\text{d}q\intop\dfrac{\text{d}\mathbf{n}_{1}\text{d}\mathbf{n}_{2}}{4\pi}\dfrac{1}{3}(1-\cos(\widehat{\mathbf{n}_{1}\mathbf{n}_{2}}))\dfrac{\text{d}\sigma}{\text{d}\Omega}(q,\widehat{\mathbf{n}_{1}\mathbf{n}_{2}})).
+\end{eqnarray*}
+
+\end_inset
+
+In analogia al caso precedente, possiamo considerare l'integrale doppio
+ in 
+\begin_inset Formula $\text{d}\mathbf{n}_{1}\text{d}\mathbf{n}_{2}$
+\end_inset
+
+ come una sezione d'urto efficace:
+\begin_inset Formula 
+\begin{eqnarray}
+\sigma_{\text{eff}}(q) & = & \intop\dfrac{\text{d}\mathbf{n}_{1}\text{d}\mathbf{n}_{2}}{4\pi}\dfrac{1}{3}(1-\cos(\widehat{\mathbf{n}_{1}\mathbf{n}_{2}}))\dfrac{\text{d}\sigma}{\text{d}\Omega}(q,\widehat{\mathbf{n}_{1}\mathbf{n}_{2}}))\nonumber \\
+ & = & \frac{2\pi}{3}\intop_{-1}^{1}\text{d}\cos\theta_{12}(1-\cos\theta_{12})\dfrac{\text{d}\sigma}{\text{d}\Omega}(q,\theta_{12}).\label{eq:6.14 - Sezione d'urto efficace}
+\end{eqnarray}
+
+\end_inset
+
+Per cui:
+\begin_inset Formula 
+\begin{equation}
+F(\mathbf{R}_{1}-\mathbf{R}_{2})\overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\ll\lambda}{=}\left|\mathbf{R}_{2}-\mathbf{R}_{1}\right|^{2}\intop_{0}^{\infty}\frac{nq}{m}\nu(q)\dfrac{q^{2}}{\hbar^{2}}\sigma_{\text{eff}}(q)\text{d}q.\label{eq:6.15 - F(R2-R1)=... onde lunghe}
+\end{equation}
+
+\end_inset
+
+L'integrale nella 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.15 - F(R2-R1)=... onde lunghe"
+
+\end_inset
+
+, che ha le dimensioni 
+\begin_inset Formula $L^{-2}T^{-1}$
+\end_inset
+
+, prende il nome di 
+\shape italic
+costante di diffusione
+\shape default
+ 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ e contiene i dettagli dell'interazione con l'ambiente.
+ In termini della costante di diffusione, possiamo scrivere il tasso di
+ decoerenza nella forma semplice:
+\begin_inset Formula 
+\begin{equation}
+F(\mathbf{R}_{1}-\mathbf{R}_{2})\overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\ll\lambda}{=}\Lambda\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|^{2}.\label{eq:6.16 - F(R1-R2) = Lambda * |R1-R2|², onde lunghe}
+\end{equation}
+
+\end_inset
+
+Come si vede, nel limite di onde lunghe, il tempo di decoerenza dipende
+ dalla distanza 
+\begin_inset Formula $\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\tau_{D}(\mathbf{R}_{1},\mathbf{R}_{2})\overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\ll\lambda}{=}\dfrac{1}{\Lambda\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|^{2}},\label{eq:6.17 - Tempo di decoerenza, onde lunghe}
+\end{equation}
+
+\end_inset
+
+a differenza del limite di onde corte in cui il tempo di decoerenza è costante
+ (vedi 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.11 - F(R1-R2) = Gamma, onde corte"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Stime numeriche
+\end_layout
+
+\begin_layout Standard
+Possiamo utilizzare i risultati del paragrafo precedente per effettuare
+ delle semplici stime numeriche dei tempi di decoerenza dovuti alle collisioni
+ con molecole d'aria in condizioni da laboratorio
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Ulteriori stime sui tempi di decoerenza collisionale (ad esempio dovuta
+ alla diffusione di fotoni termici) si possono trovare in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "3.4.1"
+key "Schlosshauer Q2C"
+
+\end_inset
+
+.
+ Inoltre, in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "9.3.1"
+key "Schlosshauer Q2C"
+
+\end_inset
+
+ si può trovare un'interessante applicazione in ambito neurologico della
+ teoria sopra esposta.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Consideriamo una particella massiva di raggio 
+\begin_inset Formula $a$
+\end_inset
+
+ e supponiamo che la sezione d'urto differenziale che appare nella 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.5 - Tasso di decoerenza (localizzazione)"
+
+\end_inset
+
+ sia semplicemente la sezione d'urto geometrica, 
+\begin_inset Formula $\frac{\text{d}\sigma}{\text{d}\Omega}=\frac{a^{2}}{4}$
+\end_inset
+
+.
+ Allora il fattore di decoerenza, nel limite di onde corte, è (vedi la 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.10 - F(R1-R2)=... onde corte"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+F(\mathbf{R}_{2}-\mathbf{R}_{1}) & \overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\gg\lambda}{=} & \dfrac{na^{2}}{4m}\intop_{0}^{\infty}q\nu(q)\text{d}q\nonumber \\
+ & = & \dfrac{na^{2}}{4m}\sqrt{\dfrac{8}{\pi}mkT}.\label{eq:6.18 - F =... (pallocco, onde corte)}
+\end{eqnarray}
+
+\end_inset
+
+Nel limite di onde lunghe si ha invece dalla 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.14 - Sezione d'urto efficace"
+
+\end_inset
+
+ 
+\begin_inset Formula $\sigma_{\text{eff}}=\dfrac{\pi a^{2}}{3}$
+\end_inset
+
+ e:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+F(\mathbf{R}_{2}-\mathbf{R}_{1}) & \overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\ll\lambda}{=} & \left|\mathbf{R}_{2}-\mathbf{R}_{1}\right|^{2}\dfrac{\pi a^{2}}{3}\dfrac{n}{m\hbar^{2}}\intop_{0}^{\infty}q^{3}\nu(q)\text{d}q\nonumber \\
+ & = & \dfrac{8}{3\hbar^{2}}n(2\pi m)^{\frac{1}{2}}a^{2}(kT)^{\frac{3}{2}}\left|\mathbf{R}_{2}-\mathbf{R}_{1}\right|^{2}.\label{eq:6.19 - F=... (pallocco, onde lunghe)}
+\end{eqnarray}
+
+\end_inset
+
+Se sostituiamo 
+\begin_inset Formula $n=\frac{p}{kT}$
+\end_inset
+
+, dove 
+\begin_inset Formula $p$
+\end_inset
+
+ è la pressione del gas, otteniamo:
+\begin_inset Formula 
+\begin{eqnarray}
+F(\mathbf{R}_{2}-\mathbf{R}_{1}) & \overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\gg\lambda}{=} & \dfrac{pa^{2}}{\sqrt{2\pi mkT}}\label{eq:6.20 - F=... (pallocco, onde corte, pressione)}\\
+F(\mathbf{R}_{2}-\mathbf{R}_{1}) & \overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\ll\lambda}{=} & \dfrac{8pa^{2}\sqrt{2\pi mkT}}{3\hbar^{2}}\left|\mathbf{R}_{2}-\mathbf{R}_{1}\right|^{2}\label{eq:6.21 - F=... (pallocco, onde lunghe, pressione)}
+\end{eqnarray}
+
+\end_inset
+
+Notiamo che la 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.20 - F=... (pallocco, onde corte, pressione)"
+
+\end_inset
+
+ ha un significato intuitivo, in quanto 
+\begin_inset Formula $pa^{2}$
+\end_inset
+
+ è proporzionale all'impulso scambiato per unità di tempo, mentre 
+\begin_inset Formula $\sqrt{2\pi mkT}$
+\end_inset
+
+ è proporzionale all'impulso scambiato in un urto singolo.
+ Di conseguenza, 
+\begin_inset Formula $\frac{pa^{2}}{\sqrt{2\pi mkT}}$
+\end_inset
+
+ è proporzionale al numero d'urti per unità di tempo 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+, e il fattore di proporzionalità risulta essere 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ Se esprimiamo i parametri che appaiono nelle 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.20 - F=... (pallocco, onde corte, pressione)"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.21 - F=... (pallocco, onde lunghe, pressione)"
+
+\end_inset
+
+ in unità comode:
+\size small
+
+\begin_inset Formula 
+\begin{eqnarray}
+F(\mathbf{R}_{2}-\mathbf{R}_{1}) & \overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\gg\lambda}{=} & 1.541\cdot10^{24}\times\left(\dfrac{p}{\text{1}\,\text{atm}}\right)\left(\dfrac{T}{300\,\text{°K}}\right)^{-\frac{1}{2}}\left(\dfrac{m}{1\,\text{u.m.a}.}\right)^{-\frac{1}{2}}\left(\dfrac{a}{1\,\text{cm}}\right)^{2}\,\text{s}^{-1}\label{eq:6.22 - F=... (pallocco, onde corte, costanti)}\\
+F(\mathbf{R}_{2}-\mathbf{R}_{1}) & \overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\ll\lambda}{=} & 1.597\cdot10^{42}\times\left(\dfrac{p}{\text{1}\,\text{atm}}\right)\left(\dfrac{T}{300\,\text{°K}}\right)^{\frac{1}{2}}\left(\dfrac{m}{1\,\text{u.m.a.}}\right)^{\frac{1}{2}}\left(\dfrac{a}{1\,\text{cm}}\right)^{2}\left(\dfrac{\left|\mathbf{R}_{2}-\mathbf{R}_{1}\right|}{1\,\text{cm}}\right)^{2}\,\text{s}^{-1}\label{eq:6.23 - F=... (pallocco, onde lunghe, costanti)}
+\end{eqnarray}
+
+\end_inset
+
+
+\size default
+possiamo ottenere facilmente delle stime dei tempi di decoerenza in condizioni
+ standard.
+ Prendiamo come esempio la decoerenza collisionale dovuta a un gas di molecole
+ d'ossigeno 
+\begin_inset Formula $\text{O}_{2}$
+\end_inset
+
+; per questa molecola si ha:
+\begin_inset Formula 
+\begin{equation}
+m_{\text{O}_{2}}=32\,\text{u.m.a.}=2.657\cdot10^{-23}\,\text{g}.\label{eq:6.24 - Massa O2}
+\end{equation}
+
+\end_inset
+
+Con:
+\begin_inset Formula 
+\begin{equation}
+h=6.626\cdot10^{-27}\,\text{erg}\cdot\text{s},\qquad kT(T=300\,\text{°K})=4.141\cdot10^{-14}\,\text{erg}\label{eq:6.25 - Costanti h e kT}
+\end{equation}
+
+\end_inset
+
+abbiamo, a temperatura ambiente, una lunghezza d'onda termica pari a:
+\begin_inset Formula 
+\begin{equation}
+\lambda=\dfrac{h}{\sqrt{2\pi mkT}}=1.782\cdot10^{-9}\,\text{cm}=0.252\,\text{Å}.\label{eq:6.26 - lambda O2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consideriamo una particella di raggio 
+\begin_inset Formula $a=1\,\text{\mu m}$
+\end_inset
+
+ (dell'ordine di grandezza di una cellula).
+ Nel limite di onde corte e a pressione atmosferica, abbiamo:
+\begin_inset Formula 
+\begin{equation}
+F(\mathbf{R}_{2}-\mathbf{R}_{1})\overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\gg\lambda}{=}2.72\cdot10^{15}\,\text{s}^{-1},\label{eq:6.27 - F=... (pallocco, onde corte, O2)}
+\end{equation}
+
+\end_inset
+
+mentre nel limite di onde lunghe, con 
+\begin_inset Formula $\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|=10^{-2}\,\text{Å}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+F(\mathbf{R}_{2}-\mathbf{R}_{1})\overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\ll\lambda}{=}9.04\cdot10^{14}\,\text{s}^{-1}.\label{eq:6.28 - F=... (pallocco, onde lunghe, O2)}
+\end{equation}
+
+\end_inset
+
+Questo corrisponde ai tempi di decoerenza:
+\begin_inset Formula 
+\begin{eqnarray}
+\tau_{\text{D}}(\mathbf{R}_{1},\mathbf{R}_{2}) & \overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\gg\lambda}{=} & 3.7\cdot10^{-16}\,\text{s}\nonumber \\
+\tau_{\text{D}}(\mathbf{R}_{1},\mathbf{R}_{2}) & \overset{\left|\mathbf{R}_{1}-\mathbf{R}_{2}\right|\ll\lambda}{=} & 1.1\cdot10^{-15}\,\text{s}\label{eq:6.29 - Tempi di decoerenza (pallocco, O2)}
+\end{eqnarray}
+
+\end_inset
+
+Per confronto, consideriamo il tempo tipico di allargamento di un pacchetto
+ gaussiano 
+\begin_inset Formula 
+\begin{equation}
+\psi(x,t=0)=\left(\dfrac{1}{\sqrt{\pi}\sigma}\right)^{\frac{1}{2}}\exp\left[-\dfrac{x^{2}}{2\sigma^{2}}\right]\label{eq:6.30 - Pacchetto gaussiano pallocco}
+\end{equation}
+
+\end_inset
+
+secondo l'equazione di Schrödinger.
+ Questo evolve in
+\begin_inset Formula 
+\[
+\psi(x,t)=\left(\dfrac{1}{\sqrt{\pi}\sigma(t)}\right)^{\frac{1}{2}}\exp\left[-\dfrac{x^{2}}{2\sigma(t)^{2}}\right]
+\]
+
+\end_inset
+
+con
+\begin_inset Formula 
+\begin{equation}
+\sigma(t)=\sigma\sqrt{1+\dfrac{h^{2}t^{2}}{M^{2}\sigma^{4}}},\label{eq:6.31 - sigma(t) pallocco}
+\end{equation}
+
+\end_inset
+
+per cui il tempo di allargamento è dato da: 
+\begin_inset Formula 
+\begin{equation}
+\tau_{\text{S}}=\dfrac{M\sigma^{2}}{\hbar}.\label{eq:6.32 - Ts pallocco (formula)}
+\end{equation}
+
+\end_inset
+
+Per un oggetto di estensione 
+\begin_inset Formula $a=1\,\text{\mu m}$
+\end_inset
+
+, una massa tipica potrebbe essere 
+\begin_inset Formula $M=\frac{1\,\text{g}}{\text{cm}^{3}}a^{3}=10^{-12}\,\text{\text{g}}$
+\end_inset
+
+, per cui, ponendo 
+\begin_inset Formula $\sigma=10^{-2}\text{Å}$
+\end_inset
+
+ si ha:
+\begin_inset Formula 
+\begin{equation}
+\tau_{\text{S}}\approx10^{-5}\,\text{s},\label{eq:Ts pallocco (numeri)}
+\end{equation}
+
+\end_inset
+
+svariati ordini di grandezza superiore ai tempi di decoerenza 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:6.29 - Tempi di decoerenza (pallocco, O2)"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Questo semplice esempio mostra che la decoerenza collisionale è estremamente
+ efficace per oggetti mesoscopici in condizioni standard.
+\end_layout
+
+\begin_layout Section
+Osservazioni conclusive
+\end_layout
+
+\begin_layout Subsection
+Il ruolo negativo della decoerenza
+\end_layout
+
+\begin_layout Standard
+In questa dissertazione si è tentato di descrivere le restrizioni, poste
+ dall'interazione con l'ambiente, sulle possibili osservazioni sperimentali
+ di un individuo dotato di una risoluzione temporale limitata.
+ Riguardo l'essenza del fenomeno della decoerenza, riteniamo non vi sia
+ nulla da aggiungere all'equazione:
+\begin_inset Formula 
+\[
+(\sum_{i}c_{i}\left|s_{i}\right\rangle )\left|E_{0}\right\rangle \to\sum_{i}c_{i}\left|s_{i}\right\rangle \left|E_{i}\right\rangle .
+\]
+
+\end_inset
+
+Essa contiene tanto il carattere globale del fenomeno, ossia la delocalizzazione
+ delle sovrapposizioni di stati nell'ambiente, quanto quello locale, cioè
+ la perdita delle relazioni di fase tra i diversi stati del sistema.
+ In quest'ultima sezione, vogliamo fare il punto delle principali implicazioni
+ della decoerenza.
+\end_layout
+
+\begin_layout Standard
+Possiamo riassumere la lezione della decoerenza in poche, semplici proposizioni.
+ Il primo insegnamento che possiamo trarne è il seguente:
+\end_layout
+
+\begin_layout Quote
+
+\series bold
+I.
+
+\series default
+\shape italic
+ Non abbiamo bisogno di postulare nessun “taglio” fra mondo classico e mondo
+ quantistico.
+\end_layout
+
+\begin_layout Standard
+I paradossi, derivanti da un'applicazione erronea della meccanica quantistica
+ ai sistemi macroscopici, scompaiono non appena si tenga propriamente conto
+ dell'interazione con l'ambiente.
+ Il principio di sovrapposizione, il “principio positivo fondamentale della
+ meccanica quantistica” 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "§ 2"
+key "Landau MQ"
+
+\end_inset
+
+, è effettivamente invalidato, per sistemi macroscopici, dalla meccanica
+ quantistica stessa.
+ Questo è il contenuto delle regole di superselezione indotte dall'ambiente.
+\end_layout
+
+\begin_layout Standard
+Inoltre, non vi è alcun bisogno di cambiare radicalmente la concezione di
+ 
+\begin_inset Quotes eld
+\end_inset
+
+mondo classico”, salvo per il fatto di riconoscere in quest'ultimo un carattere
+ emergente dal substrato quantistico.
+ Di fatto, il collasso apparente del vettore di stato, indotto dalla decoerenza,
+ garantisce la possibilità di assumere, ad ogni istante, l'esistenza di
+ uno stato classico ben definito, e questo è quanto è necessario per parlare
+ consistentemente di meccanica classica.
+ Il gatto di Schrödinger è sempre 
+\shape italic
+o
+\shape default
+ vivo 
+\shape italic
+o
+\shape default
+ morto,
+\emph on
+ 
+\emph default
+mai in una sovrapposizione di stati.
+\end_layout
+
+\begin_layout Quote
+
+\series bold
+II.
+ 
+\series default
+\shape italic
+La meccanica quantistica è di per sè in grado di definire le osservabili
+ classiche.
+\end_layout
+
+\begin_layout Standard
+Questo è un altro punto di forza della teoria della decoerenza, che non
+ si limita a postulare l'esistenza di un insieme di stati particolarmente
+ robusti rispetto all'entanglement con l'ambiente, ma è in grado di predire
+ 
+\shape italic
+quali 
+\shape default
+siano questi stati.
+ Così, siamo ora in grado di comprendere l'onnipresenza dell'osservabile
+ classica “posizione” come una conseguenza
+\shape italic
+ 
+\shape default
+del fatto che i potenziali di interazione sono tipicamente funzione di questa
+ osservabile.
+\end_layout
+
+\begin_layout Standard
+Si è anche visto come la selezione degli stati preferenziali sia rilevante
+ nei confronti del problema della misura, in quanto pone dei vincoli precisi
+ su come
+\shape italic
+ 
+\shape default
+un apparato debba essere costruito affinchè possa funzionare.
+ Alla base di queste conclusioni vi sono due premesse: la premessa maggiore
+ è che l'apparato possa essere descritto in termini quantomeccanici, mentre
+ la premessa minore è che il meccanismo con cui l'apparato acquisisce informazio
+ne circa il sistema sia l'entanglement.
+\end_layout
+
+\begin_layout Standard
+Queste prime due proposizioni sono del tutto qualitative: esse affermano
+ che la meccanica quantistica contiene la meccanica classica, e non vi è
+ in ciò nulla di contraddittorio
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+La parola “contiene” dev'essere, certamente, contestualizzata.
+ I limiti (meccanica quantistica)→(meccanica classica) da una parte, (meccanica
+ relativistica)→(meccanica classica) dall'altra, hanno un significato totalmente
+ differente.
+ Nel secondo caso possiamo, senza ambiguità, identificare il limite con
+ una semplice operazione matematica: 
+\begin_inset Formula $\frac{v}{c}\to0$
+\end_inset
+
+.
+ Nel primo caso, invece, il limite richiede necessariamente un'interpretazione.
+ Dev'essere così, dato che la descrizione 
+\shape italic
+cinematica
+\shape default
+ dei sistemi quantistici (lo spazio di Hilbert) è affatto diversa dalla
+ descrizione classica (lo spazio delle fasi).
+\end_layout
+
+\end_inset
+
+.
+ La terza proposizione è invece di tipo quantitativo e giustifica l'applicazione
+ a priori della meccanica classica al mondo macroscopico:
+\end_layout
+
+\begin_layout Quote
+
+\series bold
+III.
+
+\series default
+ 
+\shape italic
+La decoerenza è un processo estremamente efficace.
+\end_layout
+
+\begin_layout Standard
+Il rapporto fra meccanica classica e meccanica quantistica è, in un certo
+ senso, simile al rapporto fra termodinamica e meccanica statistica.
+\end_layout
+
+\begin_layout Standard
+I principi della termodinamica non contengono, di per sè, alcun riferimento
+ alle dimensioni del sistema descritto.
+ La meccanica statistica mostra che le fluttuazioni delle variabili estensive
+ esistono,
+\emph on
+ 
+\emph default
+e sono dell'ordine di 
+\begin_inset Formula $\sqrt{N}$
+\end_inset
+
+, dove 
+\begin_inset Formula $N$
+\end_inset
+
+ caratterizza le dimensioni del sistema.
+ D'altra parte, molti esperimenti sono caratterizzati da un potere risolutivo
+ costante, che per variabili estensive corrisponde ad una risoluzione proporzion
+ale a 
+\begin_inset Formula $N$
+\end_inset
+
+.
+ Per tale classe di esperimenti, le leggi della termodinamica costituiscono
+ un modello esatto.
+ È per questo che la termodinamica non ha bisogno di fare riferimento alle
+ dimensioni del sistema.
+\end_layout
+
+\begin_layout Standard
+Allo stesso modo, le leggi di Newton non fanno riferimento alle dimensioni
+ del sistema.
+ La meccanica quantistica mostra che le sovrapposizioni di stati classici
+ possono esistere per un tempo di decoerenza.
+ Inoltre, come si è potuto intravedere dalla discussione sulla decoerenza
+ collisionale, il tempo di decoerenza è, per sistemi macroscopici, talmente
+ breve che si può semplicemente porre uguale a zero.
+ Quando questo è possibile, le leggi di Newton costituiscono un modello
+ esatto.
+ Se, da una parte, ciò è altamente auspicabile, in quanto giustifica la
+ meccanica classica come teoria 
+\shape italic
+de facto 
+\shape default
+dei sistemi macroscopici, dall'altra ciò rende il compito dello sperimentatore
+ nel campo della decoerenza tremendamente arduo.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Con ciò non si intende dire che non vi sia stato, dalle prime formalizzazioni
+ della teoria della decoerenza fino ad oggi, nessun progresso in campo speriment
+ale.
+ Il lettore interessato ad una rassegna dei principali esperimenti sulla
+ decoerenza può consultare 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Cap. 6"
+key "Schlosshauer Q2C"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Possiamo ora riconoscere il ruolo essenzialmente negativo della decoerenza
+ nei confronti dell'emergenza del classico.
+ Essa definisce la realtà classica riducendo l'insieme degli stati effettivament
+e osservabili per un dato sistema, ovvero rendendo impossibile l'osservazione
+ di interferenze fra tali stati.
+ Ciò è, in ultima analisi, una conseguenza del fondamentale dualismo che
+ caratterizza le leggi della Natura: le interazioni sono locali; gli stati
+ sono non-locali.
+ Non sembra esagerato affermare che l'intuizione di questa conseguenza ha
+ costituito un passo importante per la comprensione della meccanica quantistica
+ e del suo carattere universale.
+ La decoerenza è la controparte negativa del principio di sovrapposizione,
+ necessaria per l'esistenza del mondo classico così come ci appare.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Cucchietti Paz Zurek (2005) Gaussian decoherence"
+
+\end_inset
+
+Cucchietti F.
+ M., Paz J.
+ P., Zurek W.
+ H., “Gaussian decoherence from random spin environments”, 
+\shape italic
+Phys.
+ Rev.
+ A
+\shape default
+ 
+\series bold
+72
+\series default
+, 052113 (2005).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Joos e Zeh (1985) Collisional decoherence"
+
+\end_inset
+
+Joos E., Zeh H.
+ D., “The emergence of classical properties through interaction with the
+ environment”, 
+\shape italic
+Z.
+ Phys.
+ B: Condens.
+ Matter
+\shape default
+ 
+\series bold
+59
+\series default
+, 223-243 (1985).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Hornberger (2003) Collisional decoherence"
+
+\end_inset
+
+Hornberger K., Sipe J.
+ E., “Collisional decoherence reexamined”, 
+\shape italic
+Phys.
+ Rev.
+ A
+\shape default
+ 
+\series bold
+68
+\series default
+, 012105 (2003).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Landau MQ"
+
+\end_inset
+
+Landau L.
+ D., Lifšits E.
+ M., 
+\shape italic
+Fisica Teorica, III: Meccanica quantistica.
+ Teoria non relativistica
+\shape default
+, Editori Riuniti, 1976.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Schlosshauer Q2C"
+
+\end_inset
+
+Schlosshauer M., 
+\shape italic
+Decoherence and the quantum-to-classical transition
+\shape default
+, Springer-Verlag, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Zeh - On the interpretation of measuremente"
+
+\end_inset
+
+Zeh H.
+ D., “On the interpretation of measurement in quantum theory”, 
+\shape italic
+Found.
+ Phys.
+ 
+\series bold
+\shape default
+1
+\series default
+, 69-76 (1970).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Zurek (1981) Into what mixture"
+
+\end_inset
+
+Zurek W.
+ H., “Pointer basis of quantum apparatus: Into what mixture does the wave
+ packet collapse?”, 
+\shape italic
+Phys.
+ Rev.
+ D
+\shape default
+ 
+\series bold
+24
+\series default
+, 1516-1525 (1981).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Zurek (1982) Einselection rules"
+
+\end_inset
+
+Zurek W.
+ H., “Environment-induced superselection rules”, 
+\shape italic
+Phys.
+ Rev.
+ D
+\shape default
+ 
+\series bold
+26
+\series default
+, 1862-1880 (1982).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Zurek (1993) Predictability Sieve"
+
+\end_inset
+
+Zurek W.
+ H., “Preferred states, predictability, classicality, and the environment-induced
+ decoherence”, 
+\shape italic
+Prog.
+ Theor.
+ Phys.
+
+\shape default
+ 
+\series bold
+89
+\series default
+, 281-312 (1993).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Zurek (2003)"
+
+\end_inset
+
+Zurek W.
+ H., “Decoherence, einselection, and the quantum origins of the classical”,
+ 
+\shape italic
+Rev.
+ Mod.
+ Phys.
+ 
+\series bold
+\shape default
+75
+\series default
+, 715-775 (2003).
+\end_layout
+
+\end_body
+\end_document
